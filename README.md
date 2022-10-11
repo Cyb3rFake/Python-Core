@@ -1,1 +1,12 @@
-# Python-Core
+# Прохождение курса по Python на платформе [SoloLearn.com](https://www.sololearn.com/)
+
+## [Basic Concepts(7/7)]()
+## [Strings & Variables](10/10)]()
+## [Control Structures](0/13)]()
+## [Functions & Modules](0/10)]()
+## [Exceptions & Files](0/11)]()
+## [More Types](0/11)]()
+## [Functional Programming(0/10)]()
+## [OOP(0/10)]()
+## [Regular Expressions(0/9)]()
+## [Pythonicness & Packaging(0/11)]()
