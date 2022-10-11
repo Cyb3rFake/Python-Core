@@ -2,7 +2,7 @@
 
 ## [Basic Concepts(7/7)](https://github.com/Cyb3rFake/Python-Core/tree/main/1_BasicConcepts)
 ## [Strings & Variables(10/10)](https://github.com/Cyb3rFake/Python-Core/tree/main/2_Strings%20%26%20Variables)
-## [Control Structures(0/13)](https://github.com/Cyb3rFake/Python-Core/tree/main/3_Control%20Structures)
+## [Control Structures(5/13)](https://github.com/Cyb3rFake/Python-Core/tree/main/3_Control%20Structures)
 ## [Functions & Modules(0/10)](https://github.com/Cyb3rFake/Python-Core/tree/main/4_Functions%20%26%20Modules)
 ## [Exceptions & Files(0/11)](https://github.com/Cyb3rFake/Python-Core/tree/main/5_Exceptions%20%26%20Files)
 ## [More Types(0/11)](https://github.com/Cyb3rFake/Python-Core/tree/main/6_More%20Types)
