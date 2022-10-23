@@ -1,4 +1,4 @@
-import os
+
 # letters = ["a", "b", "c"]
 # letters.append("d")
 # print(len(letters))
@@ -282,10 +282,10 @@ import os
 #     print("ошибка ввода")
 
 
-a1 = 1
-b1 = 3
-a2 = 2
-b2 = 4
+# a1 = 1
+# b1 = 3
+# a2 = 2
+# b2 = 4
 # if (a1 < a2 and b1 < b2) or (a1 > a2 and b1 > b2) or (a1 > a2 and b2 < b1) or (a1 > a2 and b2 > b1):
 #     print("пустое множество")
 # elif (a1 < a2 and b1 < b2):
@@ -350,10 +350,10 @@ b2 = 4
 # elif c % 2 == 0 and c > 20:
 #     print("NO")
 
-x1 = 4
-x2 = 4
-y1 = 5
-y2 = 5
+# x1 = 4
+# x2 = 4
+# y1 = 5
+# y2 = 5
 
 # if (x1-y1)==(x2-y2) or (x1+y1)==(x2+y2):
 #     print("YES")
@@ -389,3 +389,15 @@ y2 = 5
 #   return res
 # print(func(4))
 
+# try:
+#   num1 = input(":")
+#   num2 = input(":")
+#   print(float(num1)/float(num2))
+# except():
+
+# file = open("5_Exceptions & Files/Notes", encoding='utf-8', mode='a')
+# cont = file.write("jopahuipizda")
+# file = open("5_Exceptions & Files/Notes", encoding='utf-8', mode='r')
+# cont1 = file.read(-1)
+# print(cont1)
+# file.close()
