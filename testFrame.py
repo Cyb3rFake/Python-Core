@@ -401,3 +401,61 @@
 # cont1 = file.read(-1)
 # print(cont1)
 # file.close()
+
+# p1, p2, q1, q2 = 10, 15, 21, 13
+# print(int(abs(p1-q1)+abs(p2-q2)))
+#
+# str1 = '1'
+# str2 = str1 + '2' + str1
+# str3 = str2 + '3' + str2
+# str4 = str3 + '4' + str3
+# print(str4)
+#
+# mystr = '123' * 3 + '456' * 2 + '789' * 1
+# print(mystr)
+
+
+#print("\"Python is a great language!\", said Fred. \"I don't ever remember having this much fun before.\"")
+
+# firstname = input()
+# lastname = input()
+# print(f"Hello {firstname} {lastname}! You just delved into Python.")
+
+# name = input()
+# count = len(name)
+# print(f"Футбольная команда {name} имеет длину {count} символов")
+
+
+
+
+"""
+Даны названия трех городов. Напишите программу, которая определяет самое короткое и самое длинное название города.
+
+Формат входных данных
+На вход программе подаётся названия трех городов, каждое на отдельной строке.
+
+Формат выходных данных
+Программа должна вывести самое короткое и длинное название города, каждое на отдельной строке.
+
+Примечание. Гарантируется, что длины названий всех трех городов различны.
+
+
+# a = [input() for x in range(3)]
+a = ["Москва",
+     "Санкт-Петербург",
+     "Екатеринбург"]
+b = [len(a[i]) for i in range(3)]
+
+x ={}
+for i in range(3):
+    x[b[i]] = a[i]
+print(x)
+
+Min = (min(x.items()))
+Max = (max(x.items()))
+
+print(Min[1])
+print(Max[1])
+"""
+
+
