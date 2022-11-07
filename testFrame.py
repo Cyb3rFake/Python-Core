@@ -457,5 +457,313 @@ Max = (max(x.items()))
 print(Min[1])
 print(Max[1])
 """
+#
+# from random import random
+#
+# data = []
+# for j in range(10):
+#     data.append(int(random()*100))
+# print(data)
+# print(sorted(data))
+# mx = 0
+# mn = 99999
+#
+# for i in data:
+#     print(i)
+#     if i > mx:
+#         mx = i
+#
+#
+#
+# print(f"максимум {mx}")
+#
+# j = "ж"
+# a = "a"
+# print(j<a)
+#
+#
+# print(ord("a"))
+# print(ord("A"))
+#
 
 
+"""сортировка пузырьком"""
+"""
+print("сортировка пузырьком")
+dat = [15,8,4,3,8,2]
+count = 0
+print(dat)
+for j in range(len(dat)-1):
+    for i in range(len(dat)-1):
+         if dat[i]>dat[i+1]:
+             count +=1
+             dat[i],dat[i+1] = dat[i+1],dat[i]
+    print(dat)
+print("количеств проходов ",count, "\n")
+
+
+print("сортировка хуем")
+mx = -9999
+count1 = 0
+for i in dat:
+    if i > mx:
+        mx = i
+    count1 +=1
+print(dat)
+"""
+
+
+# if "синий" in input(""):
+#     print("YES")
+# else:
+#     print("NO")
+
+
+import math
+# x1 = 2.0
+# y1 = 2.5
+# x2= 44.155
+# y2 = 100.50
+#
+# print(math.sqrt(((x1-x2)**2)+((y1-y2)**2)))
+# r = 554.6
+# print(math.pi*r**2)
+# print(2*math.pi*r)
+#
+# m = int(input())
+# p = int(input())
+# n = int(input())
+#
+# for i in range(n):
+#     print("i",m*(p/100 +1)**i)
+
+# a = 12
+# b = -5
+# if a<b:
+#     [print(x) for x in range(a,b+1,1)]
+# elif a == b :
+#     print(a)
+# else:
+#     [print(x) for x in range(a,b-1,-1)]
+
+
+# a = 1
+# b = 20
+# d = []
+# for x in range(a, b+1, 1):
+#
+#     if x % 15 == 0 or x%17==0 or x%10==9:
+#         d.append(x)
+#         print(x)
+
+# n = 5
+# [print(f"{n} x {i} =", n*i) for i in range(1,11,1)]
+
+# a = 20
+# b = 23
+# c = 0
+# for i in range(a,b+1,1):
+#     if i**3 % 10==4 or i**3 % 10==9:
+#         c += 1
+# print(c)
+
+# a = int(input())
+# d = [input() for i in range(a)]
+# j = 0
+# print(d)
+#
+# for i in range(len(d)):
+#     j = j + int(d[i])
+#     print(d[i])
+# print(j)
+
+
+# n = int(input())
+# n = 10
+# m =[]
+# for i in range(1,n+1,1):
+#     m.append(1/i)
+# print(m)
+#
+# j = 0
+# for i in range(len(m)):
+#     j += m[i]
+# print("сумма массива без логорифма ", j)
+# print(j - math.log(n))
+
+# c = int(input())
+# a = [input() for i in range(1,c+1)]
+# a = [9,7,5,4,3,2,78,1]
+# mx = -888
+# sr = 99999
+#
+# for i in range(len(a)):
+#     if a[i] > mx:
+#         mx=a[i]
+# a.remove(mx)
+# a = sorted(a)
+# print(max(a))
+#
+# a = [i for i in range(1,21)]
+# a = [i for i in range(2,21,2)]
+# # a = [2,2,2,2,2,2,7,4,4,4,4]
+# t = 0
+# print(a)
+# for i in range(len(a)):
+#     if a[i]%2==0:
+#         t += 1
+# if t<10:
+#     print("NO")
+# elif t==10:
+#     print("YES")
+
+
+
+# n = 5678
+# count = 0
+# while n != 0:
+#     lst = n % 10
+#     n //= 10
+#     count +=1
+#     if count :
+#         frst = n
+#
+# print(frst)
+# print(count)
+
+
+# n = 455672
+# while n>9:
+#     if 99>n>9:
+#         # print(n % 10)
+#         print(n%10)
+#     n //= 10
+
+
+# n = 1111111111
+# lst = n % 10
+# f = "YES"
+# while n!=0:
+#     if n%10!=lst:
+#         f = "NO"
+#     n //=10
+# print(f)
+
+
+# n = 6543211
+# f = True
+# lst = n%10
+# while n!=0:
+#     n = n//10
+#     if n == 0:
+#         break
+#     if lst<=n%10:
+#         f == True
+#     elif lst>n%10:
+#         f = False
+#         break
+#     print(lst,"<",n%10, lst<n%10)
+#     lst = n%10
+# if f == True:
+#     print("YES")
+# else:
+#     print("NO")
+
+# mult = 1
+# for i in range(1, 11):
+#    if i % 2 == 0:
+#       continue
+#    if i % 9 == 0:
+#       break
+#    mult *= i
+# print(mult)
+
+# n = 1
+# for i in range(1,n+1):
+#     if  5<=i<=9:
+#         continue
+#     elif  17<=i<=37:
+#         continue
+#     elif  78<=i<=87:
+#         continue
+#     print(i)
+
+# n = 123
+# product = n % 10
+# while n != 0:
+#     digit = n % 10
+#     n //= 10
+#     product = product * digit
+#
+# print(product)
+
+# counter = 0
+# for i in range(99, 102):
+#     temp = i
+#     while temp > 0:
+#         counter += 1
+#         temp //= 10
+# print(counter)
+
+# n = int(input())
+# for i in range(n):
+#     print()
+#     for j in range(3):
+#         print(n,end=" ")
+
+# n = int(input())
+# for i in range(1,n+1):
+#     print()
+#     for j in range(1,10):
+#         print(f"{i} + {j} =",i+j)
+#
+
+# n = 5
+# for i in range(1,n+1):
+#     print()
+#     for j in range(1,i+1):
+#         print(i, end="")
+
+
+"""# //12x+13y=777."""
+# total = 0
+# for x in range(1, 65):
+#     for y in range(1, 60):
+#         if 12 * x + 13 * y == 777:
+#             total += 1
+#             print('x =', x, 'y =', y)
+# print('Общее количество натуральных решений =', total)
+
+
+"""# 28n+30k+31m=365 найти минимальное значение n"""
+# for n in range(1,100):
+#     for k in range(1,100):
+#         for m in range(1,100):
+#             if 28 * n + 30 * k +31 * m ==365:
+#                 print("n=",n)
+#                 print("k=",k)
+#                 print("m=",m, "\n")
+#                 break
+
+"""Имеется 100100 рублей. 
+Сколько быков, коров и телят можно купить на все эти деньги, 
+если плата за быка – 1010 рублей, за корову – 55 рублей, 
+за теленка – 0.50.5 рубля и надо купить 100100 голов скота?"""
+# for b in range(0,100):
+#     for c in range(0,100):
+#         for l in range(0,100):
+#             if 10*b + 5*c + 0.5*l == 100 and b+c+l == 100:
+#                 print("быков=",b)
+#                 print("коров=",c)
+#                 print("ягнят=",l, "\n")
+#                 break
+
+""" a^5 + b^5 +c^5 + d^ 5 = e^5 """
+# for a in range(0,150):
+#     for b in range(0,150):
+#         for c in range(0,150):
+#             for d in range(0,150):
+#                 for e in range(0,150):
+#                     if math.pow(a,5)+math.pow(b,5)+math.pow(c,5)+math.pow(d,5) == math.pow(e,5) :
+#                         print(a+b+c+d+e)
+#                         break
