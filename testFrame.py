@@ -771,16 +771,16 @@ import math
 # import time
 
 
-fib1 = fib2 = 1
-n = int(input())
-if n==1:
-    print(fib1, end=' ')
-else:
-    print(fib1, fib2, end=' ')
-
-for i in range(2, n):
-    fib1, fib2 = fib2, fib1 + fib2
-    print(fib2, end=' ')
+# fib1 = fib2 = 1
+# n = int(input())
+# if n==1:
+#     print(fib1, end=' ')
+# else:
+#     print(fib1, fib2, end=' ')
+#
+# for i in range(2, n):
+#     fib1, fib2 = fib2, fib1 + fib2
+#     print(fib2, end=' ')
 
 # i = str(input())
 # c = 0
@@ -942,3 +942,39 @@ for i in range(2, n):
 #                     if math.pow(a,5)+math.pow(b,5)+math.pow(c,5)+math.pow(d,5) == math.pow(e,5) :
 #                         print(a+b+c+d+e)
 #                         break
+
+"""Численный треугольник 3
+Дано натуральное число nn. Напишите программу, которая печатает численный треугольник с высотой равной nn, в соответствии с примером:
+
+3
+
+1
+2 3
+4 5 6
+"""
+
+# n = 5
+# c = 0
+# for i in range(1,n+1):
+#     print()
+#     for j in range(1,i+1):
+#         c += 1
+#         print(c,end=" ")
+
+# n = 10
+# c = 0
+#
+# for i in range(1,n+1):
+#     print()
+#     c +=1
+#     for j in range(1,i+1):
+#         print(j,end="")
+#
+#
+#     for d in range(1,n):
+#         r = j - d
+#         if r>0:
+#             print(r,end="")
+
+
+# [print(*range(1, n + 1), *range(n - 1, 0, -1), sep='') for n in range(1, int(input("SOSITE HUI ")) + 1)]

@@ -17,7 +17,7 @@ A12
 Кроме того, помните, что все строки, кроме последней, содержат \n в конце, который
 не должен включаться в количество символов.
 """
-file = open("D:\\PycharmProjects\Python-Core\\5_Exceptions & Files\\books", "r")
+file = open("C:\\Users\\HDS\\PycharmProjects\\Python-Core\\5_Exceptions & Files\\books", "r")
 books = (file.readlines())
 for i in range(int(len(books))-1):
     lst = list(books[i])
