@@ -389,6 +389,41 @@
 #   return res
 # print(func(4))
 
+
+# a = 5
+# b = 8
+# c = 3
+#
+# x = [a,b,c]
+# x = sorted(x,reverse=True)
+# for i in range(len(x)):
+#     print(x[i])
+
+
+
+# n = "945"
+# m = [num for num in n]
+#
+# minimal = min(m)
+# maximal = max(m)
+#
+# s = sorted(m)
+# srednee = (s[1])
+# raz = int(maximal) - int(minimal)
+# print(f"максимальное минус минимальное = {raz}")
+# print(f"среднее = {srednee}")
+# if int(raz) == int(srednee):
+#     print("Пизда как интересно")
+# else:
+#     print("Пизда как не интересно")
+
+
+# sum = 0
+# a = [5.4,33,-1232,-3.889,6]
+# for i in range(len(a)):
+#     sum =+ abs(float(a[i]))
+# print(sum)
+
 # try:
 #   num1 = input(":")
 #   num2 = input(":")
@@ -687,6 +722,146 @@ import math
 #     elif  78<=i<=87:
 #         continue
 #     print(i)
+
+# import re
+#
+# s = ['Яблоко', 'яБлоко', 'ябЛоко', 'яблОко', 'яблоКо', 'яблокО']
+#
+# result = re.search('Яб',s)
+# print(result)
+
+# n = 100
+# sum = 0
+# for i in range(1,n+1,1):
+#     if (i**2)%10==2 or (i**2)%10==5 or (i**2)%10==8:
+#        sum += i
+# print(sum)
+
+# n = 3
+# sum = 1
+# for i in range(1,n+1,1):
+#        sum *= i
+# print(sum)
+
+# m = [input() for i in range(1,11,1)]
+
+# m =[8,0,1,2,1,0,0,5,4,12]
+# mult = 1
+# for i in range(len(m)):
+#     if int(m[i]) != 0:
+#         mult = mult * int(m[i])
+# print(mult)
+
+# n = 10
+# sum = 0
+# for i in range(1,n+1,1):
+#     if n % i==0:
+#         sum += i
+# print(sum)
+
+# n = 5
+# c = -1
+# sum = 0
+# for i in range(1,n+1,1):
+#     if i%2 !=0:
+#         sum += i
+#     else:
+#         sum -= i
+# print(sum)
+# import time
+
+
+fib1 = fib2 = 1
+n = int(input())
+if n==1:
+    print(fib1, end=' ')
+else:
+    print(fib1, fib2, end=' ')
+
+for i in range(2, n):
+    fib1, fib2 = fib2, fib1 + fib2
+    print(fib2, end=' ')
+
+# i = str(input())
+# c = 0
+# while (i != "стоп" and i != "хватит" and i != "достаточно") :
+#     c+=1
+#     i = str(input())
+# print(c)
+
+# i = int(input())
+# while i%7==0:
+#     print(i)
+#     i = int(input())
+
+# i = int(input())
+# c = 0
+# while i>=0:
+#     c += i
+#     i = int(input())
+# print(c)
+
+# i = int(input())
+# c = 0
+# while 5 >= i > 0:
+#     if i == 5 :
+#         c += 1
+#     i = int(input())
+# print(c)
+
+# n = int(input())
+# c = 0
+# while n>=25:
+#     c +=1
+#     n = n - 25
+# while n >= 10:
+#     c += 1
+#     n = n - 10
+# while n >= 5:
+#     c += 1
+#     n = n - 5
+# while n >= 1:
+#     c += 1
+#     n = n - 1
+# print(c)
+
+# n = int(input())
+# while n != 0:  # пока в числе есть цифры
+#     last_digit = n % 10  # получить последнюю цифру
+#     # код обработки последней цифры
+#     n = n // 10  # удалить последнюю цифру из числа
+
+
+# num = 123456789
+# total = 0
+# while num != 0:
+#     last_digit = num % 10
+#     if last_digit > 4:
+#         total += 1
+#     num = num // 10
+# print(total)
+
+# n=9673210458
+# print(n%10)
+# while n != 0:
+#     last = n%10
+#     n //= 10
+#     print(last)
+
+
+# n = str(input())
+# sum = 0
+# proizv = 1
+# for i in range(0,len(n),1):
+#
+#     sum += int(n[i])
+#     proizv *= int(n[i])
+# print(sum)
+# print(len(n))
+# print(proizv)
+# print(sum/len(n))
+# print(n[0])
+# print(int(n[0])+int(n[3]))
 
 # n = 123
 # product = n % 10
