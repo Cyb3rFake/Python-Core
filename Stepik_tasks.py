@@ -953,28 +953,68 @@ import math
 4 5 6
 """
 
-# n = 5
+# n = 10
 # c = 0
 # for i in range(1,n+1):
 #     print()
 #     for j in range(1,i+1):
 #         c += 1
-#         print(c,end=" ")
-
-# n = 10
-# c = 0
-#
-# for i in range(1,n+1):
-#     print()
-#     c +=1
-#     for j in range(1,i+1):
-#         print(j,end="")
-#
-#
-#     for d in range(1,n):
-#         r = j - d
-#         if r>0:
-#             print(r,end="")
+#         print(c, end=" ")
 
 
 # [print(*range(1, n + 1), *range(n - 1, 0, -1), sep='') for n in range(1, int(input("SOSITE HUI ")) + 1)]
+
+"""
+На вход программе подается два натуральных числа a и b (a< b). Напишите программу, которая находит натуральное число из отрезка [a;b] с максимальной суммой делителей.
+
+Формат входных данных
+На вход программе подаются два числа, каждое на отдельной строке.
+
+Формат выходных данных
+Программа должна вывести два числа на одной строке, разделенных пробелом: число с максимальной суммой делителей и сумму его делителей.
+
+Примечание. Если таких чисел несколько, то выведите наибольшее из них.
+
+Sample Input 1:
+1
+10
+Sample Output 1:
+10 18
+"""
+
+# a, b = int(input()),int(input())
+# a, b = 1,10
+# sum = 0
+# max_sum = 0
+# count = 0
+# for i in range(b,a-1,-1):
+#     print()
+#     sum = 0
+#     for j in range(1,i+1):
+#         if i % j==0:
+#             sum += j
+#             print(j,end=" ")
+#         if max_sum<sum:
+#             max_sum=sum
+#             count =i
+#
+#     print("sum=",sum)
+#
+# print(count,"max= ",max_sum)
+
+
+# a, b = 1,10
+# sum = 0
+# max_sum = 0
+# count = 0
+# for i in range(b,a-1,-1):
+#     sum = 0
+#     for j in range(1,i+1):
+#         if i % j==0:
+#             sum += j
+#         if max_sum<sum:
+#             max_sum=sum
+#             count =i
+# print(count,max_sum)
+
+
