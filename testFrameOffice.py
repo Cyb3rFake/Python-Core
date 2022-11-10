@@ -643,3 +643,42 @@ print(Max[1])
 # print("{0}{1}{0}".format("abra", "cad"))
 # abracadabra
 
+# def test(func, arg):
+#   return func(func(arg))
+#
+# def mult(x):
+#   return x * x
+#
+#
+#
+# print(test(mult, 2))
+
+
+# # named function
+# def polynomial(x):
+#     return x ** 2 + 5 * x + 4
+# print(polynomial(4))
+#
+#
+# # lambda
+# x =4
+# print((lambda x: x ** 2 + 5 * x + 4)(x))
+
+
+# triple = lambda x: x * 3
+# add = lambda x, y: x + y
+# print(add(triple(3), 4))
+
+# def sum_to(x):
+#     if x == 1:
+#         return 1
+#     else:
+#         return x + sum_to(x-1)
+# print (sum_to(5))
+
+def fib(x):
+  if x == 0 or x == 1:
+    return 1
+  else:
+    return fib(x-1) + fib(x-2)
+print(fib(4))
