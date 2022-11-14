@@ -1,0 +1,345 @@
+Classes
+
+    Ранее мы рассмотрели две парадигмы программирования - императивную (использующую операторы, циклы и функции в качестве подпрограмм) и функциональную (использующую чистые функции, функции более высокого порядка и рекурсию).
+
+    Другой очень популярной парадигмой является объектно-ориентированное программирование (ООП).
+    Объекты создаются с использованием классов, которые на самом деле являются центром ООП.
+    Класс описывает, каким будет объект, но отделен от самого объекта. Другими словами, класс может быть описан как схема, описание или определение объекта.
+    Вы можете использовать один и тот же класс в качестве схемы для создания нескольких различных объектов.
+
+    Классы создаются с использованием ключевого слова class и блока с отступом, который содержит методы класса (которые являются функциями).
+    Ниже приведен пример простого класса и его объектов.
+
+    class Cat:
+      def __init__(self, color, legs):
+        self.color = color
+        self.legs = legs
+
+    felix = Cat("ginger", 4)
+    rover = Cat("dog-colored", 4)
+    stumpy = Cat("brown", 3)
+
+    Этот код определяет класс с именем Cat, который имеет два атрибута: цвет и ноги.
+    Затем класс используется для создания 3 отдельных объектов этого класса.
+    Нажмите Продолжить, чтобы узнать больше!
+
+__init__
+
+    Метод __init__ является наиболее важным методом в классе.
+    Это вызывается, когда создается экземпляр (объект) класса, использующий имя класса в качестве функции.
+
+    Все методы должны иметь self в качестве первого параметра, хотя он явно не передается, Python добавляет аргумент self в список для вас;
+    вам не нужно включать его при вызове методов. В определении метода self ссылается на экземпляр, вызывающий метод.
+
+    Экземпляры класса имеют атрибуты, которые представляют собой фрагменты данных, связанные с ними.
+    В этом примере экземпляры Cat имеют атрибуты color и legs. К ним можно получить доступ, поставив точку и имя атрибута после экземпляра.
+    Таким образом, в методе __init__ self.attribute может использоваться для установки начального значения атрибутов экземпляра.
+    Пример:
+
+    class Cat:
+        def __init__(self, color, legs):
+            self.color = color
+            self.legs = legs
+
+    felix = Cat("ginger", 4)
+    print(felix.color)
+    В приведенном выше примере метод __init__ принимает два аргумента и присваивает их атрибутам объекта.
+    Метод __init__ вызывается конструктором класса.
+
+Method
+
+    Классы могут иметь другие методы, определенные для добавления к ним функциональности.
+    Помните, что все методы должны иметь self в качестве своего первого параметра.
+    Доступ к этим методам осуществляется с использованием того же синтаксиса точек, что и к атрибутам.
+    Пример:
+
+    class Dog:
+      def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+      def bark(self):
+        print("Woof!")
+
+    fido = Dog("Fido", "brown")
+    print(fido.name, fido.color)
+    fido.bark()
+
+    Классы также могут иметь атрибуты класса, созданные путем присвоения переменных в теле
+    класса. К ним можно получить доступ либо из экземпляров класса, либо из самого класса.
+    Пример:
+
+    class Dog:
+        legs = 4
+        def __init__(self, name, color):
+            self.name = name
+            self.color = color
+
+    fido = Dog("Fido", "brown")
+    print(fido.legs)
+    print(Dog.legs)
+    >>4
+    >>4
+
+Classes
+    Попытка получить доступ к атрибуту экземпляра, который не определен, вызывает ошибку
+    AttributeError. Это также применимо, когда вы вызываете неопределенный метод.
+    Пример:
+        class Rectangle:
+        def __init__(self, width, height):
+            self.width = width
+            self.height = height
+
+        rect = Rectangle(7, 8)
+        print(rect.color)
+
+Inheritance(Наследование)
+
+    Наследование обеспечивает способ совместного использования функциональности между классами.
+    Представьте себе несколько классов: Кошка, Собака, Кролик и так далее. Хотя они могут отличаться в некоторых отношениях (только собака может иметь метод лая), они, вероятно, будут похожи в других (все имеют атрибуты цвета и названия).
+    Это сходство может быть выражено в том, что все они наследуются от суперкласса Animal, который содержит общую функциональность.
+    Чтобы наследовать класс от другого класса, поместите имя суперкласса в круглые скобки после имени класса.
+    Пример:
+
+    class Animal:
+        def __init__(self, name, color):
+            self.name = name
+            self.color = color
+
+    class Cat(Animal):
+        def purr(self):
+            print("Purr...")
+
+    class Dog(Animal):
+        def bark(self):
+            print("Woof!")
+
+    fido = Dog("Fido", "brown")
+    print(fido.color)
+    fido.bark()
+
+    tom = Cat("Tom","white")
+    tom.purr()
+    print(tom.color)
+
+    Класс, который наследуется от другого класса, называется подклассом.
+    Класс, который наследуется от, называется суперклассом.
+    Если класс наследуется от другого с теми же атрибутами или методами,
+    он переопределяет их.
+    Пример:
+
+    class Wolf:
+        def __init__(self, name, color):
+            self.name = name
+            self.color = color
+
+        def bark(self):
+            print("Grr...")
+
+    class Dog(Wolf):
+        def bark(self):
+            print("Woof")
+
+    husky = Dog("Max", "grey")
+    husky.bark()
+    print()
+
+    pidor = Wolf("Gay","Jopa")
+    pidor.bark()
+    print(pidor.name,pidor.color)
+
+    Наследование также может быть косвенным.
+    Один класс может наследовать от другого,
+    и этот класс может наследовать от третьего класса.
+    Пример:
+
+    class A:
+    def method(self):
+        print("A method")
+
+    class B(A):
+        def another_method(self):
+            print("B method")
+
+    class C(B):
+        def third_method(self):
+            print("C method")
+
+    c = C()
+    c.method()
+    c.another_method()
+    c.third_method()
+
+    >>>A method
+    >>>B method
+    >>>C method
+
+    Функция super - это полезная функция, связанная с наследованием,
+    которая ссылается на родительский класс. Его можно использовать
+    для поиска метода с определенным именем в суперклассе объекта.
+    Пример:
+
+    class A:
+    def spam(self):
+        print(1)
+
+    class B(A):
+        def spam(self):
+            print(2)
+            super().spam()
+
+    B().spam()
+    >>2
+    >>1
+
+    super().spam() вызывает метод spam суперкласса.
+
+
+MagicMethods
+    Магические методы - это специальные методы, которые имеют двойное подчеркивание в начале и конце своих названий.
+    Они также известны как дункеры.
+    Пока что единственный, с которым мы столкнулись, - это __init__, но есть несколько других.
+    Они используются для создания функциональности, которая не может быть представлена в виде обычного метода.
+
+    Одним из распространенных способов их использования является перегрузка оператора.
+    Это означает определение операторов для пользовательских классов, которые позволяют использовать в них такие операторы, как + и *.
+    Примером магического метода является __add__ for +.
+
+    class Vector2D:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __add__(self, other):
+        return Vector2D(self.x + other.x, self.y + other.y)
+
+    first = Vector2D(5, 7)
+    second = Vector2D(3, 9)
+    result = first + second
+    print(result.x)
+    print(result.y)
+    >>8
+    >>16
+
+    Метод __add__ позволяет определить пользовательское поведение для оператора + в нашем классе.
+    Как вы можете видеть, он добавляет соответствующие атрибуты объектов и возвращает новый объект, содержащий результат.
+    Как только он определен, мы можем добавить два объекта класса вместе.
+
+    More magic methods for common operators:
+    __sub__ for -
+    __mul__ for *
+    __truediv__ for /
+    __floordiv__ for //
+    __mod__ for %
+    __pow__ for **
+    __and__ for &
+    __xor__ for ^
+    __or__ for |
+
+    The expression x + y is translated into x.__add__(y).
+    However, if x hasn't implemented __add__, and x and y are of different types, then y.__radd__(x) is called.
+    There are equivalent r methods for all magic methods just mentioned.
+    Example:
+
+   class SpecialString:
+    def __init__(self, cont):
+        self.cont = cont
+
+    def __truediv__(self, other):
+        line = "=" * len(other.cont)
+        return "\n".join([self.cont, line, other.cont])
+
+    spam = SpecialString("spam")
+    hello = SpecialString("Hello world!")
+    print(hello/spam)
+
+        Python also provides magic methods for comparisons.
+    __lt__ for <
+    __le__ for <=
+    __eq__ for ==
+    __ne__ for !=
+    __gt__ for >
+    __ge__ for >=
+
+    If __ne__ is not implemented, it returns the opposite of __eq__.
+    There are no other relationships between the other operators.
+    Example:
+
+    class SpecialString:
+    def __init__(self, cont):
+        self.cont = cont
+
+    def __gt__(self, other):
+        for index in range(len(other.cont)+1):
+            result = other.cont[:index] + ">" + self.cont
+            result += ">" + other.cont[index:]
+            print(result)
+
+    spam = SpecialString("spam")
+    eggs = SpecialString("eggs")
+    spam > eggs
+
+    There are several magic methods for making classes act like containers.
+    __len__ for len()
+    __getitem__ for indexing
+    __setitem__ for assigning to indexed values
+    __delitem__ for deleting indexed values
+    __iter__ for iteration over objects (e.g., in for loops)
+    __contains__ for in
+
+    There are many other magic methods that we won't cover here, such as __call__ for calling objects as functions, and __int__, __str__, and the like, for converting objects to built-in types.
+    Example:
+
+    import random
+
+    class VagueList:
+        def __init__(self, cont):
+            self.cont = cont
+
+        def __getitem__(self, index):
+            return self.cont[index + random.randint(-1, 1)]
+
+        def __len__(self):
+            return random.randint(0, len(self.cont)*2)
+
+    vague_list = VagueList(["A", "B", "C", "D", "E"])
+    print(len(vague_list))
+    print(len(vague_list))
+    print(vague_list[2])
+    print(vague_list[2])
+    >>5
+    >>8
+    >>C
+    >>D
+
+Object Lifecycle(Жизненный цикл объекта)
+
+
+    Жизненный цикл объекта состоит из его создания, манипулирования и уничтожения.
+
+    Первым этапом жизненного цикла объекта является определение класса, к которому он принадлежит.
+    Следующим этапом является создание экземпляра, когда вызывается __init__. Память выделяется для хранения экземпляра. Непосредственно перед тем, как это произойдет, вызывается __new__ метод класса. Обычно это переопределяется только в особых случаях.
+    После того, как это произошло, объект готов к использованию.)
+
+    Затем другой код может взаимодействовать с объектом, вызывая для него функции и получая доступ к его атрибутам.
+    В конце концов, он закончит использоваться и может быть уничтожен.
+
+    Когда объект уничтожается, выделенная ему память освобождается и может быть использована для других целей.
+    Уничтожение объекта происходит, когда количество его ссылок достигает нуля. Количество ссылок - это количество переменных и других элементов, которые ссылаются на объект.
+    Если на него ничего не ссылается (количество ссылок равно нулю), ничто не может с ним взаимодействовать, поэтому его можно безопасно удалить.
+
+    В некоторых ситуациях два (или более) объекта могут ссылаться только друг на друга и, следовательно, также могут быть удалены.
+    Оператор del уменьшает количество ссылок на объект на единицу, и это часто приводит к его удалению.
+    Волшебный метод для оператора del - это __del__.
+    Процесс удаления объектов, когда они больше не нужны, называется сборкой мусора.
+    Таким образом, количество ссылок на объект увеличивается, когда ему присваивается новое имя или он помещается в контейнер (список, кортеж или словарь). Количество ссылок на объект уменьшается, когда он удаляется с помощью del, его ссылка переназначается или его ссылка выходит за пределы области видимости. Когда количество ссылок на объект достигает нуля, Python автоматически удаляет его.
+    Пример:
+
+    a = 42  # Create object <42>
+    b = a  # Increase ref. count  of <42>
+    c = [a]  # Increase ref. count  of <42>
+
+    del a  # Decrease ref. count  of <42>
+    b = 100  # Decrease ref. count  of <42>
+    c[0] = -1  # Decrease ref. count  of <42>
+
+

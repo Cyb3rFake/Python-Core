@@ -554,7 +554,6 @@ print(dat)
 #     print("NO")
 
 
-import math
 # x1 = 2.0
 # y1 = 2.5
 # x2= 44.155
