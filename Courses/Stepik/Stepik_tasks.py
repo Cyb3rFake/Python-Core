@@ -3533,3 +3533,300 @@ Sample Output 1:
 
 # m, p, n = float(input()), float(input()), int(input())
 # [print(i + 1, m * (1 + p / 100) ** (i)) for i in range(n)]
+
+"""
+13.5
+
+"""
+
+# # объявление функции
+# def is_valid_triangle(side1, side2, side3):
+#     return a<b+c and b<c+a and c < a +b
+#
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# print(is_valid_triangle(a, b, c))
+
+"""
+31.5___Is a Number Prime? 🌶️
+Напишите функцию is_prime(num), которая принимает в качестве аргумента натуральное число и возвращает значение True если число является простым и False в противном случае.
+
+ Примечание. Следующий программный код:
+
+print(is_prime(1))
+print(is_prime(10))
+print(is_prime(17))
+должен выводить:
+
+False
+False
+True
+
+"""
+# # объявление функции
+# def is_prime(num):
+#     if num == 1:
+#         return False
+#     for i in range(2,(num**0,5)+1):
+#         if num%i == 0:
+#             return False
+#     return True
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(is_prime(n))
+
+"""
+
+13.5___Next Prime 🌶️🌶️
+Напишите функцию get_next_prime(num), которая принимает в качестве аргумента натуральное число num и возвращает первое простое число большее числа num.
+
+Примечание 1. Используйте функцию is_prime() из предыдущей задачи.
+
+ Примечание 2. Следующий программный код:
+
+print(get_next_prime(6))
+print(get_next_prime(7))
+print(get_next_prime(14))
+должен выводить:
+
+7
+11
+17
+"""
+# объявление функции
+# def get_next_prime(num):
+#     while True:
+#         num+=1
+#         if is_prime(num)==True:
+#             return num
+#
+# def is_prime(num):
+#     if num == 1:
+#         return False
+#     for i in range(2,num):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# n = int(input())
+# print(get_next_prime(n))
+
+"""
+13.5___Good password 🌶️
+Напишите функцию is_password_good(password), 
+которая принимает в качестве аргумента строковое значение пароля password и возвращает значение True если пароль является надежным и False в противном случае.
+
+Пароль является надежным если:
+
+его длина не менее 8 символов; 
+он содержит как минимум одну заглавную букву (верхний регистр); 
+он содержит как минимум одну строчную букву (нижний регистр);
+он содержит хотя бы одну цифру.
+ Примечание. Следующий программный код:
+
+print(is_password_good('aabbCC11OP'))
+print(is_password_good('abC1pu'))
+должен выводить:
+
+True
+False
+
+"""
+def is_password_good(p):
+
+    flag = True
+    if len(p)<8:
+        return False
+
+    check_upper = 0
+    check_lower = 0
+    check_isdigit = 0
+
+    for i in range(len(p)):
+        if 'a'<=p[i]<='z':
+            check_lower+=1
+        if 'A'<=p[i]<='Z':
+            check_upper+=1
+        if '0'<=p[i]<='9':
+            check_isdigit+=1
+    #
+    # upp = [i for i in password if i.isupper()]
+    # low = [i for i in password if i.islower()]
+    # dig = [i for i in password if i.isdigit()]
+    # return all([len(password) >= 8, upp, low, dig])
+    #
+    if check_upper!=0 and check_lower!=0 and check_isdigit!=0:
+        return True
+    else:
+        return False
+
+# print(is_password_good(''))
+
+# lst = ['aaAA12qqp','aa13AN','aaaaaaaaaaaaa','AAAAAAAAAAA','734638763978653','AAPPqq9S','AABBccssss','AA23423423','dsas233232232','99yyPPgg','99yyPPg','()+_№;%:','aaaaaaA@']
+
+"""
+13.5___Ровно в одном
+Напишите функцию is_one_away(word1, word2), которая принимает в качестве аргументов два слова word1 и word2 и возвращает значение True если слова имеют одинаковую длину и отличаются ровно в 1 символе и False в противном случае.
+
+ Примечание. Следующий программный код:
+
+print(is_one_away('bike', 'hike'))
+print(is_one_away('water', 'wafer'))
+print(is_one_away('abcd', 'abpo'))
+print(is_one_away('abcd', 'abcde'))
+должен выводить:
+
+True
+True
+False
+False
+
+
+"""
+# объявление функции
+def is_one_away(word1, word2):
+    f = False
+    if len(word1)!=len(word2):
+        return False
+
+    count = 0
+    for i in range(len(word1)):
+        if word1[i] != word2[i]:
+            count += 1
+            if count > 1 or count == 0 :
+                return False
+            else:
+                f = True
+    return f
+# вызываем функцию
+# print(is_one_away('bike', 'hike'))
+# print(is_one_away('water', 'wafer'))
+# print(is_one_away('abcd', 'abpo'))
+# print(is_one_away('abcd', 'abcde'))
+# print(is_one_away('abcd1234567', 'abcd1234568'))
+# print(is_one_away('abcd', 'abcd'))
+# print(is_one_away('aab', 'aba'))
+# print(is_one_away('abcd', 'dcba'))
+
+"""
+13.5___Палиндром 🌶️
+Напишите функцию is_palindrome(text), которая принимает в качестве аргумента строку text и возвращает значение True если указанный текст является палиндромом и False в противном случае.
+
+Примечание 1. Палиндром – это строка, которая читается одинаково в обоих направлениях
+
+Примечание 2. При проверке считайте большие и маленькие буквы одинаковыми, а также игнорируйте пробелы, а также символы , . ! ? -.
+
+Примечание 3. Следующий программный код:
+
+print(is_palindrome('А роза упала на лапу Азора.'))
+print(is_palindrome('Gabler Ruby - burrel bag!'))
+print(is_palindrome('BEEGEEK'))
+должен выводить:
+
+True
+True
+False
+
+"""
+
+def is_palindrome(text):
+    n_text = ''.join([i for i in text.lower() if not i.isspace() and ord(i) in range(97,122) or ord(i) in range(1072,1108)])
+    f=True if n_text.replace(' ','').replace('.','') .lower()==n_text.replace(' ','').replace('.','') .lower()[::-1] else False
+    return f
+# print(is_palindrome('А роза упала на лапу Азора.'))
+# print(is_palindrome('Gabler Ruby - burrel bag!'))
+# print(is_palindrome('BEEGEEK'))
+
+# a = 'А роза упала на лапу Азора.'.replace(' ','').replace('.','') .lower()
+# d = 'А роза упала на лапу Азора.'.replace(' ','').replace('.','') .lower()[::-1]
+# print(a,d,sep='\n')
+#
+# print([i for i in range(ord('а'),ord('я'))])
+
+"""
+13.5___BEEGEEK
+BEEGEEK наконец открыл свой банк в котором используются специальные банкоматы с необычным паролем.
+
+Действительный пароль BEEGEEK банка имеет вид a:b:c, где a, b и c – натуральные числа. Поскольку основатель BEEGEEK фанатеет от математики, то он решил:
+
+число a – должно быть палиндромом;
+число b – должно быть простым;
+число c – должно быть четным.
+Напишите функцию is_valid_password(password), которая принимает в качестве аргумента строковое значение пароля password и возвращает значение True если пароль является действительным паролем BEEGEEK банка и False в противном случае.
+
+ Примечание. Следующий программный код:
+
+print(is_valid_password('1221:101:22'))
+print(is_valid_password('565:30:50'))
+print(is_valid_password('112:7:9'))
+print(is_valid_password('1221:101:22:22'))
+
+должен выводить:
+
+True
+False
+False
+False
+
+"""
+
+def is_valid_password(password):
+    f = False
+    c=0
+
+    for i in password:
+        if i==':':
+            c+=1
+            if c>2:
+                return False
+
+    t = list(password.split(':'))
+    a, b, c = t[0], t[1], t[2]
+
+    # chk_a = 'Палиндром' if a == a[::-1] else 'Не палиндом'
+    # chk_b = 'Простое' if int(b) % 2 != 0 else 'Не простое'
+    # chk_c = 'Четное 'if int(c) % 2 == 0 else 'Не четное'
+
+    chk_a = True if a == a[::-1] else False
+    chk_b = True if int(b) % 2 != 0 else False
+    chk_c = True if int(c) % 2 == 0 else False
+
+    return all([chk_a,chk_b,chk_c])
+
+    # return a,b,c,chk_a,chk_b,chk_c
+
+
+print(is_valid_password('1221:101:22'))
+print(is_valid_password('565:30:50'))
+print(is_valid_password('112:7:9'))
+print(is_valid_password('1221:101:22:22'))
+
+# text ='1221:101:22'.partition(':'[0])
+# text ='1221:101:22'
+# a = str(text).partition(':'[0])
+# b = str(text).rpartition(':'[0])
+# print(*a[0:1])
+# a = []
+# a = [text[i] for i in range(text.index(':'))]
+# print(a)
+#
+# t = list(text.split(':'))
+# a,b,c = t[0],t[1],t[2]
+# print(a,b,c,sep='\n')
+
+
+
+# def is_prime(a):
+#     if a % 2 == 0:
+#         return a == 2
+#     d = 3
+#     while d * d <= a and a % d != 0:
+#         d += 2
+#     return d * d > a
+#
+# print(is_prime(7))
