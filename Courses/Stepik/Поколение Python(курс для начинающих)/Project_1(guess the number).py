@@ -17,11 +17,10 @@ def welcome():
     return str(r1),str(r2),rnd_num
 
 # набор фраз для попыток
-def phrases_list():
-    allmost = ['Уже близко', '', '', '']
-    allmost_close = ['Почти угадал', '', '', '']
-    far_awy = ['Пока не рядом', 'Не угадал', '', '']
-
+def phrases_list(n):
+    allmost = ['Уже близко', 'Почти угадал', 'Рядышком', 'Тепло']
+    far_awy = ['Пока не рядом', 'Не угадал', 'Холодно...', 'Неа...']
+    return allmost[n],far_awy[n]
 
 # проверка на число и диапазон
 def check_digit():
@@ -48,14 +47,21 @@ def check_digit():
 # проверка на
 def cheker_num():
     r1, r2, rnd_num = welcome()
-
+    counter = 0
     ask_num = int(input('Введите число: '))
     # print(type(ask_num), ask_num,type(rnd_num),rnd_num)
     print(ask_num,rnd_num)
-    while rnd_num != ask_num:
-        ask_num = int(input('Не верно, Введите число: '))
-    else:
-        print('Угадал,сука!')
+    while True:
+    # while rnd_num != ask_num:
+        rnd = random.randrange(0, 3)
+        counter+=1
+        ask_num = int(input())
+        if ask_num == rnd_num:
+            return print(f'Угадал,сука! С {counter}й попытки!')
+        if (ask_num - rnd_num) >= -5 :
+            print(f'{phrases_list(rnd)[0]}')
+        else:
+            print(f'{phrases_list(rnd)[1]}')
 
 cheker_num()
 
