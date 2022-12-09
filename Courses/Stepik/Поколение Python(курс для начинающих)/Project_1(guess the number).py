@@ -4,17 +4,16 @@ import random
 
 # приглашение к началу игры
 
-def welcome():
-    usr_name = ''
+def input_range():
     while True:
         try:
-            r1,r2 = map(int,input('Введите через запятую границы диапазона угадываемых чисел: ').split(','))
+            r1,r2 = map(str,input('Введите через запятую границы диапазона угадываемых чисел: ').split(','))
             break
         except ValueError:
             print('Не верный формат')
     print(f'Диапазон угадываемых значений установлен от {r1} до {r2}')
-    rnd_num = random.randrange(r1,r2)
-    return str(r1),str(r2),rnd_num
+    rnd_num = random.randrange(int(r1),int(r2))
+    return r1,r2,rnd_num
 
 # набор фраз для попыток
 def phrases_list(n):
@@ -23,48 +22,54 @@ def phrases_list(n):
     return allmost[n],far_awy[n]
 
 # проверка на число и диапазон
-def check_digit():
+def check_digit(r1,r2,c_num):
     num = c_num
-    range_ = c_range
-    ch_digit = False
-    ch_range = False
 
-    if num.isdigit() == True:
-        num = 'Введено число'
-        ch_digit = True
+    wrong_int =True
+
+    wrong_range = False # wrong_int ='Введено не число >:/'
+
+    if num.isdigit() == False:  # wrong_range = 'Введенное число вне диапазона'
+
+        wrong_int = False
     else:
-        num = 'Введено не число'
+        num = int(num)
+        if  int(r1)<=int(num)<=int(r2):
+            wrong_range = True
 
-    if  range_[0]<=int(c_num)<=range_[1] in range_:
-        range_ = 'Введенное число в диапазоне'
-        ch_range = True
-    else:
-        range_= 'Введенное число вне диапазона'
-
-    return ch_digit,ch_range, num, range_
+    return wrong_int,wrong_range
 
 
 # проверка на
-def cheker_num():
-    r1, r2, rnd_num = welcome()
-    counter = 0
-    ask_num = int(input('Введите число: '))
-    # print(type(ask_num), ask_num,type(rnd_num),rnd_num)
-    print(ask_num,rnd_num)
+def cheker_num(range1,range2,rnd_num):
+    r1, r2, rnd_num = range1, range2, rnd_num
+    print(rnd_num)
+    ask_num = input('Введите число: ')
+    counter = 1
+    # if int(ask_num) == rnd_num:
+    #     return print('ДаНуНах!!!Читор с 1й попытки')
     while True:
-    # while rnd_num != ask_num:
         rnd = random.randrange(0, 3)
         counter+=1
-        ask_num = int(input())
-        if ask_num == rnd_num:
+        if check_digit(int(r1),int(r2),ask_num)[0] == False:
+            print('Введено не число >:/')
+            ask_num = input('Введите число: ')
+            continue
+
+        if check_digit(int(r1),int(r2),ask_num)[1] == False:
+            print('Введенное число вне диапазона')
+            ask_num = input('Введите число: ')
+            continue
+
+        if int(ask_num) == rnd_num:
             return print(f'Угадал,сука! С {counter}й попытки!')
-        if (ask_num - rnd_num) >= -5 :
+        if 5 <= (int(ask_num) - rnd_num) >= -5 :
             print(f'{phrases_list(rnd)[0]}')
         else:
             print(f'{phrases_list(rnd)[1]}')
+        ask_num = input()
 
-cheker_num()
-
+cheker_num(*input_range())
 # a,b,c = welcome()
 # print(a,b,c)
 # a = 5
