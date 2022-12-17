@@ -8,6 +8,8 @@ def input_range():
     while True:
         try:
             r1,r2 = map(str,input('Введите через запятую границы диапазона угадываемых чисел: ').split(','))
+            if r1>r2:
+                r1,r2 = r2,r1
             break
         except ValueError:
             print('Не верный формат')
@@ -46,8 +48,8 @@ def cheker_num(range1,range2,rnd_num):
     print(rnd_num)
     ask_num = input('Введите число: ')
     counter = 1
-    # if int(ask_num) == rnd_num:
-    #     return print('ДаНуНах!!!Читор с 1й попытки')
+    if ask_num.isdigit()==True and int(ask_num) == rnd_num:
+        return print('ДаНуНах!!!Читор с 1й попытки')
     while True:
         rnd = random.randrange(0, 3)
         counter+=1
@@ -70,6 +72,7 @@ def cheker_num(range1,range2,rnd_num):
         ask_num = input()
 
 cheker_num(*input_range())
+
 # a,b,c = welcome()
 # print(a,b,c)
 # a = 5
