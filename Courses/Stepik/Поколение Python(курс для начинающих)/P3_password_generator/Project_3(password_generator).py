@@ -3,9 +3,11 @@
 """
 1) Реализовать проверку вводимого значения длинны пароля на недопустимые значения(отрицательные числа, пустое поле)
 2) Реализовать ограничение на длинну пароля
+3) Добавить возможность записи в файл ==> сделано.
 """
-
+import time
 import random
+from pathlib import Path
 
 if __name__ == '__main__':
 
@@ -30,13 +32,14 @@ if __name__ == '__main__':
         lst_questions = ['Длина одного пароля: ',
                          'Включать ли цифры 0123456789 (y/n)? ' ,
                          'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz (y/n)? ' ,
+                         'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ (y/n)?',
                          'Включать ли символы и знаки припенания !#$%&*+-=?@^_. (y/n)? ' ,
                          'Исключать ли неоднозначные символы il1Lo0O (y/n)? ' ]
 
         lst_answers = [input(lst_questions[i]) for i in range(len(lst_questions))]
         # тестовые данные
         # lst_answers = ['10','+','+','+','+','+']
-        # lst_answers = ['10','+','-','-','-','-']
+        # lst_answers = ['10','+','+','+','+','-']
         # lst_answers = ['10','+','-','-','-','-']
         return lst_answers
 
@@ -61,6 +64,30 @@ if __name__ == '__main__':
         return password
 
 
+    def ask_save_pass(pswd_list):
+        #запись в файл
+        passwords = pswd_list
+        ask = input('Сохранить пароли в файл?(y/n)')
+        if ask in lst_yes:
+
+            with open('password.txt', 'a+') as f:
+                f.write(f'=======>{time.ctime()}\n')
+
+            for i in range(len(passwords)):
+                with open('password.txt', 'a+') as f:
+                    f.write(f'{passwords[i]}\n')
+
+            with open('password.txt', 'a+') as f:
+                f.write(f'\n')
+        else:
+            return
+
+        path_ = Path.cwd() /'password.txt'
+
+
+        return print('Пароли сохранены в файле :', path_, sep='\n')
+
+
     def start():
 
         while True:
@@ -83,7 +110,12 @@ if __name__ == '__main__':
 
         for i in range(len(passwords)):
             print(f'|  {passwords[i]}  |')
+        print()
+
+        ask_save_pass(passwords)
 
     start()
+
+
 
 
