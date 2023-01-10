@@ -1,54 +1,43 @@
 """Шифр Цезаря"""
 
-encrypted_text = ''
+symbol_list = '!@#$%^&*,.[]{} '
+eng_alphabet = 'abcdefghijklmnopqrstuvwxyz'
+# eng_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+rus_alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
+# rus_upper_alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
-def encrypt(text,shift):
-    key = shift
-    dictionary_rus = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
-    dictionary_eng = "abcdefghijklmnopqrstuvwxyz"
+
+
+def encrypt(text = 'тест!', k = 1):
     res = []
     for i in text:
-        if i in dictionary_rus:
-            s = dictionary_rus.index(i)
-            res.append(dictionary_rus[s-key])
-        else:
-            res.append(' ')
+        if i in rus_alphabet:
+            s = rus_alphabet.index(i)
+            res.append(rus_alphabet[s - k])
+        elif i in symbol_list:
+            res.append(i)
     res = ''.join(res)
-    global encrypted_text
-    encrypted_text = res
     return res
 
+print(encrypt(k=1))
 
-def decrypt(text,shift):
-    res=[]
-    key = shift
-    dictionary_rus = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
-    dictionary_eng = "abcdefghijklmnopqrstuvwxyz"
+
+def decrypt(text = 'сдрс!', k = 1):
+    res = []
     for i in text:
-        if i in dictionary_rus:
-            s = dictionary_rus.index(i)
-            # print(f'Текущий интедкс буквы {s}\nИндекс буквы со сдвигом {s + key}\nЧисло букв в алфавите {len(dictionary_rus)}')
-            if (s+key)>len(dictionary_rus)-1:
-                res.append(dictionary_rus[(s+key)-(len(dictionary_rus))])
+        if i in rus_alphabet:
+            s = rus_alphabet.index(i)
+            if (s + k)>len(rus_alphabet)-1:
+                # print((s + k),len(rus_alphabet)-1)
+                d = (rus_alphabet[(s+k)-len(rus_alphabet)-1])
+                res.append(rus_alphabet[(s+k)-len(rus_alphabet)])
             else:
-                res.append(dictionary_rus[s+key])
-        else:
-            res.append(' ')
+                res.append(rus_alphabet[s + k])
+        elif i in symbol_list:
+            res.append(i)
     res = ''.join(res)
-    print(res)
+    return res
 
-# encrypt('жопа хуй', 5)
-# decrypt(encrypted_text, 5)
+print(decrypt())
 
-if __name__ == '__main__':
-    # a = input('Зашифруем че-нить?(Да/Нет) ')
-    # if a != 'д':
-    #     print('пакет')
-    #     exit()
-    # txt = input('Введите текст для шифрования: ')
-    # key = input('Введите число сдвига шифра: ')
 
-    # print('Вот че вышло:',encrypt('лиса колбаса', 1))
-    pass
-
-print(*dir(list()),sep='\n')
