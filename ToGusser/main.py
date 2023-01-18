@@ -108,13 +108,6 @@ read_stat()
 
 
 
-
-
-
-
-
-
-
 def get_working_time(name):
     # получить время работы программы(процесса) (часы),(минуты)
     s = (''.join([str(proc) for proc in psutil.process_iter(['name']) if proc.info['name'] == name])).split(',')[-1].split('=')[1]

@@ -695,6 +695,44 @@ print(Max[1])
 # hello = SpecialString("Hello world!")
 # print(hello/spam)
 
+import datetime
+import time
+# time = str(datetime.datetime.now().time())[0:5]
+# print(time)
+print(time.strftime("%H:%M"))
+from datetime import datetime
 
 
-print()
+
+# print(f'{time[3]}:{time[4]}')
+# ss = 3721
+# print()
+
+# class A:
+#     def __init__(self, val=0):
+#         self.val = val
+#
+#     def add(self, x):
+#         self.val += x
+#
+#     def print_val(self):
+#         print(self.val)
+#
+#
+# a = A()
+# b = A(2)
+# c = A(4)
+# a.add(2)
+# b.add(2)
+#
+# a.print_val()
+# b.print_val()
+# c.print_val()
+
+s = 'test'
+
+print(s[:] == s)
+print(s[:] is s)
+print(s[::-1][::-1] == s)
+print(s[::-1][::-1] is s)
+
