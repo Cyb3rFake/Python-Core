@@ -695,12 +695,13 @@ print(Max[1])
 # hello = SpecialString("Hello world!")
 # print(hello/spam)
 
-import datetime
-import time
-# time = str(datetime.datetime.now().time())[0:5]
-# print(time)
-print(time.strftime("%H:%M"))
-from datetime import datetime
+# import datetime
+# import random
+# import time
+# # time = str(datetime.datetime.now().time())[0:5]
+# # print(time)
+# print(time.strftime("%H:%M"))
+# from datetime import datetime
 
 
 
@@ -729,10 +730,35 @@ from datetime import datetime
 # b.print_val()
 # c.print_val()
 
-s = 'test'
+# s = 'test'
+#
+# print(s[:] == s)
+# print(s[:] is s)
+# print(s[::-1][::-1] == s)
+# print(s[::-1][::-1] is s)
+#
 
-print(s[:] == s)
-print(s[:] is s)
-print(s[::-1][::-1] == s)
-print(s[::-1][::-1] is s)
+
+# list_ = list(set([random.randrange(1,100) for i in range(20)]))
+# print(list_)
+
+from MyUtils import *
+
+
+my_list = uniq_list(1,10,10)
+
+# def bubble_sort():
+#     last_item = len(my_list)-1
+#     sor_list =[]
+#     print('Получен список: ',my_list)
+#     for i in range(0,last_item):
+#         for j in range(0,last_item):
+#             if my_list[j] > my_list[j + 1]:
+#                 my_list[j],my_list[j + 1] = my_list[j + 1],my_list[j]
+#
+#     print("Отсортированный список: ", my_list)
+print(my_list)
+# print(bubble_sort(my_list))
+
+
 
