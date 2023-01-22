@@ -761,6 +761,8 @@ from MyUtils import *
 # print(my_list)
 # print(bubble_sort(my_list))
 
+
+
 """  Программирование на Python  https://stepik.org/course/67/syllabus
 """
 
@@ -807,8 +809,6 @@ def most_(text = 'abc a bCd bC AbC BC BCD bcd ABC'.lower()):
     print('Больше всего повторяется:',*val,max(lst_dic.values()))
 
 
-
-
 def Students_data():
     # with open('dataset_3363_4.txt','r',encoding='utf8') as file:
     #     text = (file.read())
@@ -817,37 +817,22 @@ def Students_data():
 
     lst = text.split("\n")
     lst1 = []
-    midle_ball_of_student = 0
+    math_midle = 0
+    phus_midle = 0
+    lang_midle = 0
+    counter = 0
     for items in lst:
         lst1.append(items.split(';'))
 
     for item in lst1:
+        counter += 1
+        try:
+            print((int(item[1])+int(item[2])+int(item[3]))/3)
+        except:
+            print(item, 'Не посчиталось')
+            pass
+        math_midle += int(item[1])
+        phus_midle += int(item[2])
+        lang_midle += int(item[3])
+    print(math_midle/counter,phus_midle/counter,lang_midle/counter)
 
-        print(int(item[]))
-    # print(lst1)
-
-    # print((int(lst1[0][1])+int(lst1[0][2])+int(lst1[0][3]))/3)
-    # print((int(lst1[1][1])+int(lst1[1][2])+int(lst1[1][3]))/3)
-    # print((int(lst1[2][1])+int(lst1[2][2])+int(lst1[2][3]))/3)
-    # print((int(lst1[0][1])+int(lst1[1][1])+int(lst1[2][1]))/3,
-    #       (int(lst1[0][2])+int(lst1[1][2])+int(lst1[2][2]))/3,
-    #       (int(lst1[0][3])+int(lst1[1][3])+int(lst1[2][3]))/3)
-    # print((lst1[0][1]+lst1[0][2]+int(lst1[0][3]))/3)
-    # print(*str(lst).split(';'))
-
-Students_data()
-
-
-# nlst = []
-# nlst1 = []
-#
-# for i in lst:
-#     for j in range(len(i)):
-#         if j[i].isdigit() == True:
-#                 nlst.append(j)
-# print(nlst)
-#
-#
-
-# for i in range(len(lst)):
-    # nlst.append()
