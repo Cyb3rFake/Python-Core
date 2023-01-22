@@ -122,10 +122,11 @@ def decrypt(text = 'сдрс!', k = 1, lng = 'rus'):
         res = ''.join(res)
         return res
 
+
+"""
 def test(txt):
 
     w = txt.split()
-    rot = []
     count_symb =0
     for i in w:
         count_symb = 0
@@ -137,7 +138,7 @@ def test(txt):
     for i in range(len(w)):
 
         print(encrypt(text=w[i],k=rot[i],lng='eng'),end=' ')
-
+"""
 
 def main():
     global txt
@@ -157,7 +158,8 @@ def main():
     print(res)
 
 if __name__ == '__main__':
-    test(input())
+    main()
+    # test(input())
     # test('my name is Python!')
     # print('Сдвиг',i, ' = ', decrypt('hawnj pk swhg xabkna ukq nqj',i, 'eng'))
         # print('Сдвиг',i, ' = ', decrypt('яшбэьч ауюнуа ряу, фущон ряу тьяаоак.',i, 'rus'))

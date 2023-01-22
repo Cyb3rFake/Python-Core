@@ -492,6 +492,7 @@ Max = (max(x.items()))
 print(Min[1])
 print(Max[1])
 """
+import time
 
 # import re
 #
@@ -745,7 +746,7 @@ print(Max[1])
 from MyUtils import *
 
 
-my_list = uniq_list(1,10,10)
+# my_list = uniq_list(1,10,10)
 
 # def bubble_sort():
 #     last_item = len(my_list)-1
@@ -757,8 +758,96 @@ my_list = uniq_list(1,10,10)
 #                 my_list[j],my_list[j + 1] = my_list[j + 1],my_list[j]
 #
 #     print("Отсортированный список: ", my_list)
-print(my_list)
+# print(my_list)
 # print(bubble_sort(my_list))
 
+"""  Программирование на Python  https://stepik.org/course/67/syllabus
+"""
+
+# 3.4 Файловый ввод/вывод
+
+def decypher(text):
+    with open('dataset_3363_2.txt','r') as file:
+        text = file.read()
+
+    # inc_str = 'Q10c4G17s20P17p4G20y19p5t16Q14N7Q1L17a13l9I15L14e20U4'
+    inc_str = text
+    out_str = []
+    mult = ''
+    for i in range(len(inc_str)-2):
+        if inc_str[i].isalpha() == True:
+            if inc_str[i+1].isalpha() == False:
+                mult += inc_str[i+1]
+            if inc_str[i+2].isalpha() == False:
+                mult += inc_str[i+2]
+            out_str.append(inc_str[i] * int(mult))
+        mult = ''
+    result =''.join(out_str)
+    print(result)
+
+def most_(text = 'abc a bCd bC AbC BC BCD bcd ABC'.lower()):
+    with open('dataset_3363_3.txt','r') as file:
+        text = ''.join(file.read().split('\n'))
 
 
+    def get_key(d, value):
+        for k, v in d.items():
+            if v == value:
+                return k
+
+    lst_ = text.lower().split(' ')
+    lst_dic = {}
+    m_count_l = 0
+    for item in set(lst_):
+        lst_dic[item] = lst_.count(item)
+
+    val = {i for i in lst_dic if lst_dic[i]==max(lst_dic.values())} #поиск по ключу максимального элемента
+    print('Всего элементов:',len(lst_))
+    print('Уникальных элементов:',len(set(lst_)))
+    print('Больше всего повторяется:',*val,max(lst_dic.values()))
+
+
+
+
+def Students_data():
+    # with open('dataset_3363_4.txt','r',encoding='utf8') as file:
+    #     text = (file.read())
+    with open('dataset_3363_4.txt','r') as file:
+        text = (file.read())
+
+    lst = text.split("\n")
+    lst1 = []
+    midle_ball_of_student = 0
+    for items in lst:
+        lst1.append(items.split(';'))
+
+    for item in lst1:
+
+        print(int(item[]))
+    # print(lst1)
+
+    # print((int(lst1[0][1])+int(lst1[0][2])+int(lst1[0][3]))/3)
+    # print((int(lst1[1][1])+int(lst1[1][2])+int(lst1[1][3]))/3)
+    # print((int(lst1[2][1])+int(lst1[2][2])+int(lst1[2][3]))/3)
+    # print((int(lst1[0][1])+int(lst1[1][1])+int(lst1[2][1]))/3,
+    #       (int(lst1[0][2])+int(lst1[1][2])+int(lst1[2][2]))/3,
+    #       (int(lst1[0][3])+int(lst1[1][3])+int(lst1[2][3]))/3)
+    # print((lst1[0][1]+lst1[0][2]+int(lst1[0][3]))/3)
+    # print(*str(lst).split(';'))
+
+Students_data()
+
+
+# nlst = []
+# nlst1 = []
+#
+# for i in lst:
+#     for j in range(len(i)):
+#         if j[i].isdigit() == True:
+#                 nlst.append(j)
+# print(nlst)
+#
+#
+
+# for i in range(len(lst)):
+    # nlst.append()
