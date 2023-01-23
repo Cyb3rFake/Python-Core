@@ -808,7 +808,6 @@ def most_(text = 'abc a bCd bC AbC BC BCD bcd ABC'.lower()):
     print('Уникальных элементов:',len(set(lst_)))
     print('Больше всего повторяется:',*val,max(lst_dic.values()))
 
-
 def Students_data():
     # with open('dataset_3363_4.txt','r',encoding='utf8') as file:
     #     text = (file.read())
@@ -835,4 +834,22 @@ def Students_data():
         phus_midle += int(item[2])
         lang_midle += int(item[3])
     print(math_midle/counter,phus_midle/counter,lang_midle/counter)
+
+# 3.5 Модули, подключение модулей
+
+import math, sys
+def get_perimert(radius_circle):
+    return math.pi*2*radius_circle
+    # print(get_perimert(float(input())))
+
+
+def get_args():
+    return print(*sys.argv[1::])
+
+
+# 3.6 Установка дополнительных модулей
+
+def get_strings_count():
+    with open('','r') as file:
+        text = file.read()
 
