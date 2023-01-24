@@ -744,6 +744,7 @@ import time
 # print(list_)
 
 from MyUtils import *
+import requests as re
 
 
 # my_list = uniq_list(1,10,10)
@@ -837,7 +838,9 @@ def Students_data():
 
 # 3.5 Модули, подключение модулей
 
-import math, sys
+import math, sys,urllib3
+urllib3.disable_warnings() #
+
 def get_perimert(radius_circle):
     return math.pi*2*radius_circle
     # print(get_perimert(float(input())))
@@ -850,6 +853,141 @@ def get_args():
 # 3.6 Установка дополнительных модулей
 
 def get_strings_count():
-    with open('','r') as file:
-        text = file.read()
+    """
+    Скачайте файл.
+    В нём указан адрес другого файла, который нужно скачать с использованием модуля requests и посчитать число строк в нём.
+    Используйте функцию get для получения файла (имеет смысл вызвать метод strip к передаваемому параметру, чтобы убрать пробельные символы по краям).
+    После получения файла вы можете проверить результат, обратившись к полю text.
+    Если результат работы скрипта не принимается, проверьте поле url на правильность.
+    Для подсчёта количества строк разбейте текст с помощью метода splitlines.
+    В поле ответа введите одно число или отправьте файл, содержащий одно число.
+    """
+
+    with open('Dataset_1.txt','r') as file:
+        text = file.read().strip()
+
+        r = re.get(text)
+        if r.status_code == 200:
+            pass
+        else:
+            print('Ошибка',r)
+
+    print(len(r.text.splitlines()))
+
+def get_reqest():
+    """
+    Имеется набор файлов, каждый из которых, кроме последнего, содержит имя следующего файла.
+    Первое слово в тексте последнего файла: "We".
+    Скачайте предложенный файл. В нём содержится ссылка на первый файл из этого набора.
+    Все файлы располагаются в каталоге по адресу:
+    https://stepic.org/media/attachments/course67/3.6.3/
+
+    Загрузите содержимое последнего файла из набора, как ответ на это задание.
+    """
+    url = "https://stepic.org/media/attachments/course67/3.6.3/"
+    open_file = "Dataset_2.txt"
+    with open(open_file,'r') as file:
+        text = file.read().strip()
+
+    print(f'Файл {open_file} содержит:',text, sep='\n')
+    take_txt_file = text.split('/')[-1]
+    r = re.get(url+take_txt_file)
+    take_text = r.text
+    c = 0
+    while take_text.startswith('We')==False:
+        r = re.get(url+take_text)
+        c+=1
+        print(f'Файл № {c} Содержимое фала {take_text} : {r.text}')
+        take_text = r.text
+
+
+# 3.7 Задачи по материалам недели
+
+def footbal_result_format(*args):
+    # Команда:Всего_игр Побед Ничьих Поражений Всего_очков
+    lst = list(args)
+    matches = lst.pop(0)
+
+    band_names_lst =[]
+    score_dic = {}
+
+    win_score = 0
+    draw_score = 0
+    loose_score = 0
+    result_points_score = 0
+    band_matches = 0
+
+    for i in lst:
+        band_names_lst.append(str(i).split(';')[0])
+        band_names_lst.append(str(i).split(';')[2])
+    band_names_lst = list(set(band_names_lst))
+
+    for band in band_names_lst:
+        win_score = 0
+        band_matches = 0
+        draw_score = 0
+        loose_score = 0
+        result_points_score = 0
+        for i in range(len(lst)):
+            # подсчет сыгранных матчей командой
+            if str(lst[i]).split(';')[0] == band or str(lst[i]).split(';')[2] == band:
+                band_matches += 1
+            # подсчет побед комманды
+            if (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) > int(str(lst[i]).split(';')[3])) \
+                or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3] ) > int(str(lst[i]).split(';')[1])):
+                win_score+=1
+            # подсчет игр в нечью
+            elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1]) == int(str(lst[i]).split(';')[3])) \
+                    or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3])== int(str(lst[i]).split(';')[1])):
+                draw_score += 1
+            # подсчет поражений команды
+            elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) < int(str(lst[i]).split(';')[3])) \
+                    or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3]) < int(str(lst[i]).split(';')[1])):
+                loose_score += 1
+
+            result_points_score = win_score*3+draw_score
+
+        print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
+
+    # for band in band_names_lst:
+    #     win_score = 0
+    #     band_matches = 0
+    #     draw_score = 0
+    #     loose_score = 0
+    #     result_points_score = 0
+    #     for i in range(len(lst)):
+    #         # подсчет сыгранных матчей командой
+    #         if str(lst[i]).split(';')[0] == band or str(lst[i]).split(';')[2] == band:
+    #             band_matches += 1
+    #         # подсчет побед комманды
+    #         if (str(lst[i]).split(';')[0] == band and str(lst[i]).split(';')[1] < str(lst[i]).split(';')[3]) \
+    #             or (str(lst[i]).split(';')[2] == band and str(lst[i]).split(';')[3] < str(lst[i]).split(';')[1]):
+    #             win_score+=1
+    #         # подсчет игр в нечью
+    #         if (str(lst[i]).split(';')[0] == band and str(lst[i]).split(';')[1] == str(lst[i]).split(';')[3]) \
+    #                 or (str(lst[i]).split(';')[2] == band and str(lst[i]).split(';')[3] == str(lst[i]).split(';')[1]):
+    #             draw_score += 1
+    #         # подсчет поражений команды
+    #         if (str(lst[i]).split(';')[0] == band and str(lst[i]).split(';')[1] > str(lst[i]).split(';')[3]) \
+    #                 or (str(lst[i]).split(';')[2] == band and str(lst[i]).split(';')[3] > str(lst[i]).split(';')[1]):
+    #             loose_score += 1
+    #
+    #         result_points_score = win_score*3+draw_score
+    #
+    #     print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
+
+
+
+
+    # print(str(lst[0]).split(';')[0],str(lst[0]).split(';')[1],':',str(lst[0]).split(';')[2],str(lst[0]).split(';')[3])
+    # print(str(lst[1]).split(';')[0],str(lst[1]).split(';')[1],':',str(lst[1]).split(';')[2],str(lst[1]).split(';')[3])
+    # print(str(lst[2]).split(';')[0],str(lst[2]).split(';')[1],':',str(lst[2]).split(';')[2],str(lst[2]).split(';')[3])
+
+
+
+
+
+footbal_result_format(3,'Спартак;9;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
+print()
+footbal_result_format(3,'Спар_так;9;Зенит;10','Локомотив;12;Зенит;3','Спар_так;8;Локомотив;15')
 
