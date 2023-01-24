@@ -928,6 +928,7 @@ def footbal_result_format(*args):
         draw_score = 0
         loose_score = 0
         result_points_score = 0
+
         for i in range(len(lst)):
             # подсчет сыгранных матчей командой
             if str(lst[i]).split(';')[0] == band or str(lst[i]).split(';')[2] == band:
@@ -948,6 +949,7 @@ def footbal_result_format(*args):
             result_points_score = win_score*3+draw_score
 
         print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
+        # print(f'{band}:{band_matches} {loose_score} {draw_score} {win_score} {result_points_score}')
 
     # for band in band_names_lst:
     #     win_score = 0
@@ -984,10 +986,24 @@ def footbal_result_format(*args):
     # print(str(lst[2]).split(';')[0],str(lst[2]).split(';')[1],':',str(lst[2]).split(';')[2],str(lst[2]).split(';')[3])
 
 
+"""
+Команда:Всего_игр Побед Ничьих Поражений Всего_очков
+Спартак:2 0 0 2 0
+Зенит:2 1 0 1 3
+Локомотив:2 2 0 0 6
+
+footbal_result_format(3,'Спартак;10;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
+
+Зенит:2 0 1 1 1
+Локомотив:2 2 0 0 6
+Спартак:2 0 1 1 1
+
+"""
 
 
-
-footbal_result_format(3,'Спартак;9;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
+# footbal_result_format(3,'Спартак;9;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
+footbal_result_format(3,'Спартак;1;Зенит;1','Локомотив;12;Зенит;12','Спартак;8;Локомотив;15')
 print()
-footbal_result_format(3,'Спар_так;9;Зенит;10','Локомотив;12;Зенит;3','Спар_так;8;Локомотив;15')
+
+# footbal_result_format(int(input()),str(input()),str(input()),str(input()))
 
