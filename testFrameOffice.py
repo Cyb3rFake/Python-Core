@@ -903,8 +903,96 @@ def get_reqest():
 
 # 3.7 Задачи по материалам недели
 
-def footbal_result_format(*args):
+def footbal_result_format():
+    """
+    Напишите программу, которая принимает на стандартный вход список игр футбольных команд с результатом матча и выводит на стандартный вывод сводную таблицу результатов всех матчей.
+    За победу команде начисляется 3 очка, за поражение — 0, за ничью — 1.
+
+    Формат ввода следующий:
+    В первой строке указано целое число
+    n — количество завершенных игр.
+    После этого идет n строк, в которых записаны результаты игры в следующем формате:
+
+    Первая_команда;Забито_первой_командой;Вторая_команда;Забито_второй_командой
+
+    Вывод программы необходимо оформить следующим образом:
+    Команда:Всего_игр Побед Ничьих Поражений Всего_очков
+
+    Конкретный пример ввода-вывода приведён ниже.
+    Порядок вывода команд произвольный.
+    Sample Input:
+    3
+    Спартак;9;Зенит;10
+    Локомотив;12;Зенит;3
+    Спартак;8;Локомотив;15
+    Sample Output:
+
+    Спартак:2 0 0 2 0
+    Зенит:2 1 0 1 3
+    Локомотив:2 2 0 0 6
+
+    """
     # Команда:Всего_игр Побед Ничьих Поражений Всего_очков
+
+    d = {}
+    for game in range(int(input())):
+        c1, r1, c2, r2 = input().split(';')
+        r1, r2 = int(r1), int(r2)
+        r1, r2 = 3 * (r1 > r2) + (r1 == r2), 3 * (r2 > r1) + (r1 == r2)
+        r1, r2 = [[1, int(_ == 3), int(_ == 1), int(_ == 0), _] for _ in (r1, r2)]
+        d[c1] = [sum(_) for _ in zip(d.get(c1, [0, 0, 0, 0, 0]), r1)]
+        d[c2] = [sum(_) for _ in zip(d.get(c2, [0, 0, 0, 0, 0]), r2)]
+    [print(k, ' '.join(map(str, v)), sep=':') for k, v in d.items()]
+
+    """
+        a = [input().split(';') for i in range(int(input()))]
+        b = {i: [] for i in set([i[0] for i in a]) | set([i[2] for i in a])}
+        for i in a:
+            b[i[0]].append(1 if i[1] == i[3] else 3 if i[1] > i[3] else 0)
+            b[i[2]].append(1 if i[1] == i[3] else 3 if i[1] < i[3] else 0)
+        for i in b: print(f'{i}:{len(b[i])} {b[i].count(3)} {b[i].count(1)} {b[i].count(0)} {sum(b[i])}')
+    """
+
+    """
+    d = dict()
+    countOfgames = games
+    matchResult = []
+
+    def update_teams(d,team):
+        if team not in d:
+            d[team] = [0,0,0,0,0]
+
+    def update_score(d, result):
+        if (result[1] > result[3]):
+            d[result[0]][0] += 1
+            d[result[0]][1] += 1
+            d[result[0]][4] += 3
+            d[result[2]][0] += 1
+            d[result[2]][3] += 1
+        elif (result[1] == result[3]):
+            d[result[0]][0] += 1
+            d[result[0]][2] += 1
+            d[result[0]][4] += 1
+            d[result[2]][0] += 1
+            d[result[2]][2] += 1
+            d[result[2]][4] += 1
+        else:
+            d[result[2]][0] += 1
+            d[result[2]][1] += 1
+            d[result[2]][4] += 3
+            d[result[0]][0] += 1
+            d[result[0]][3] += 1
+
+    for i in range(countOfgames):
+        matchResult.append(input().split(';'))
+        update_teams(d,matchResult[i][0])
+        update_teams(d,matchResult[i][2])
+        update_score(d,matchResult[i])
+
+    for key, values in d.items():
+        print(f'{key}:{values[0]} {values[1]} {values[2]} {values[3]} {values[4]}')"""
+
+    """
     lst = list(args)
     matches = lst.pop(0)
 
@@ -922,32 +1010,35 @@ def footbal_result_format(*args):
         band_names_lst.append(str(i).split(';')[2])
     band_names_lst = list(set(band_names_lst))
 
-    for band in band_names_lst:
-        win_score = 0
-        band_matches = 0
-        draw_score = 0
-        loose_score = 0
-        result_points_score = 0
-        for i in range(len(lst)):
-            # подсчет сыгранных матчей командой
-            if str(lst[i]).split(';')[0] == band or str(lst[i]).split(';')[2] == band:
-                band_matches += 1
-            # подсчет побед комманды
-            if (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) > int(str(lst[i]).split(';')[3])) \
-                or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3] ) > int(str(lst[i]).split(';')[1])):
-                win_score+=1
-            # подсчет игр в нечью
-            elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1]) == int(str(lst[i]).split(';')[3])) \
-                    or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3])== int(str(lst[i]).split(';')[1])):
-                draw_score += 1
-            # подсчет поражений команды
-            elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) < int(str(lst[i]).split(';')[3])) \
-                    or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3]) < int(str(lst[i]).split(';')[1])):
-                loose_score += 1
-
-            result_points_score = win_score*3+draw_score
-
-        print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
+    # for band in band_names_lst:
+    #     win_score = 0
+    #     band_matches = 0
+    #     draw_score = 0
+    #     loose_score = 0
+    #     result_points_score = 0
+    #     for i in range(len(lst)):
+    #         # подсчет сыгранных матчей командой
+    #         if str(lst[i]).split(';')[0] == band or str(lst[i]).split(';')[2] == band:
+    #             band_matches += 1
+    #
+    #         # подсчет побед комманды
+    #         if (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) > int(str(lst[i]).split(';')[3])) \
+    #             or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3] ) > int(str(lst[i]).split(';')[1])):
+    #             win_score+=1
+    #
+    #         # подсчет игр в нечью
+    #         elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1]) == int(str(lst[i]).split(';')[3])) \
+    #                 or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3])== int(str(lst[i]).split(';')[1])):
+    #             draw_score += 1
+    #
+    #         # подсчет поражений команды
+    #         elif (str(lst[i]).split(';')[0] == band and int(str(lst[i]).split(';')[1] ) < int(str(lst[i]).split(';')[3])) \
+    #                 or (str(lst[i]).split(';')[2] == band and int(str(lst[i]).split(';')[3]) < int(str(lst[i]).split(';')[1])):
+    #             loose_score += 1
+    #
+    #         result_points_score = win_score*3+draw_score
+    #
+    #     print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
 
     # for band in band_names_lst:
     #     win_score = 0
@@ -975,19 +1066,75 @@ def footbal_result_format(*args):
     #         result_points_score = win_score*3+draw_score
     #
     #     print(f'{band}:{band_matches} {win_score} {draw_score} {loose_score} {result_points_score}')
-
-
-
+"""
 
     # print(str(lst[0]).split(';')[0],str(lst[0]).split(';')[1],':',str(lst[0]).split(';')[2],str(lst[0]).split(';')[3])
     # print(str(lst[1]).split(';')[0],str(lst[1]).split(';')[1],':',str(lst[1]).split(';')[2],str(lst[1]).split(';')[3])
     # print(str(lst[2]).split(';')[0],str(lst[2]).split(';')[1],':',str(lst[2]).split(';')[2],str(lst[2]).split(';')[3])
 
+    # # footbal_result_format(3,'Спартак;9;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
+    #     # print()
+    # footbal_result_format()
+
+def encrypt(symbs,key,str_for_encrypt,str_for_decrypt):
+    """
+    В какой-то момент в Институте биоинформатики биологи перестали понимать, что говорят информатики: они говорили каким-то странным набором звуков.
+    В какой-то момент один из биологов раскрыл секрет информатиков: они использовали при общении подстановочный шифр, т.е. заменяли каждый символ исходного сообщения на соответствующий ему другой символ. Биологи раздобыли ключ к шифру и теперь нуждаются в помощи:
+    Напишите программу, которая умеет шифровать и расшифровывать шифр подстановки. Программа принимает на вход две строки одинаковой длины, на первой строке записаны символы исходного алфавита, на второй строке — символы конечного алфавита, после чего идёт строка, которую нужно зашифровать переданным ключом, и ещё одна строка, которую нужно расшифровать.
+
+    Пусть, например, на вход программе передано:
+    abcd
+    *d%#
+    abacabadaba
+    #*%*d*%
+
+    Это значит, что символ a исходного сообщения заменяется на символ * в шифре, b заменяется на d, c — на % и d — на #.
+    Нужно зашифровать строку abacabadaba и расшифровать строку #*%*d*% с помощью этого шифра. Получаем следующие строки, которые и передаём на вывод программы:
+    *d*%*d*#*d*
+    dacabac
 
 
+    """
+
+    # print('Original string:',str_for_encrypt)
+    translation = str_for_encrypt.maketrans(symbs,key)
+    encrypted = str_for_encrypt.translate(translation)
+    # print('Translated string:',str_for_encrypt.translate(translation))
+    # print()
+
+    translation = str_for_decrypt.maketrans(key,symbs)
+    decrypted = str_for_decrypt.translate(translation)
+    # print('Encrypted stiong:', str_for_decrypt)
+    # print('Decrypted string:',str_for_decrypt.translate(translation))
+
+    return f'{encrypted} \n{decrypted}'
+
+    # print(encrypt('abcd','*d%#','abacabadaba','#*%*d*%'))
+    # print(encrypt(str(input()),str(input()),str(input()),str(input())))
+
+def orpho_check(chk_words,strings_for_check):
+    """
+    Простейшая система проверки орфографии может быть основана на использовании списка известных слов.
+    Если введённое слово не найдено в этом списке, оно помечается как "ошибка".
+    Попробуем написать подобную систему.
+    На вход программе первой строкой передаётся количество d известных нам слов,
+    после чего на d строках указываются эти слова. Затем передаётся количество
+    l строк текста для проверки, после чего l строк текста.
+    Выведите уникальные "ошибки" в произвольном порядке. Работу производите без учёта регистра.
+    """
+    words = ' '.join(strings_for_check).split()
+    # print(words)
+    res = []
+    for i in range(len(words)):
+        if words[i] not in chk_words:
+            res.append(words[i])
+    print(*set(res),sep='\n')
+
+        # chk_words = [str(input()).lower() for i in range(int(input()))]
+        # strings_for_check = [str(input()).lower() for i in range(int(input()))]
+        # orpho_check(chk_words,strings_for_check)
 
 
-footbal_result_format(3,'Спартак;9;Зенит;10','Локомотив;12;Зенит;3','Спартак;8;Локомотив;15')
-print()
-footbal_result_format(3,'Спар_так;9;Зенит;10','Локомотив;12;Зенит;3','Спар_так;8;Локомотив;15')
+        # chk_words = ['champions','we','are','Stepik']
+        # strings_for_check = ['We are the champignons','We Are The Champions','Stepic']
 

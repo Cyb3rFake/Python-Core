@@ -198,3 +198,5 @@ Sample Output:
 #     if n[i]>n[i-1]:
 #         flag = 'NO'
 # print(flag)
+
+
