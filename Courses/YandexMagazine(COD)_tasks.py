@@ -22,9 +22,3 @@ def check_int(n):
         for j in range(1,len(lst)):
             if i + lst[j] == n:
                 return print(lst.index(i),lst.index(lst[j]))
-
-
-"""
-
-
-"""

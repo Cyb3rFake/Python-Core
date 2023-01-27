@@ -1,3 +1,6 @@
+from MyUtils import *
+import requests as re
+import time
 
 # letters = ["a", "b", "c"]
 # letters.append("d")
@@ -460,9 +463,6 @@
 # count = len(name)
 # print(f"Футбольная команда {name} имеет длину {count} символов")
 
-
-
-
 """
 Даны названия трех городов. Напишите программу, которая определяет самое короткое и самое длинное название города.
 
@@ -492,7 +492,6 @@ Max = (max(x.items()))
 print(Min[1])
 print(Max[1])
 """
-import time
 
 # import re
 #
@@ -743,10 +742,6 @@ import time
 # list_ = list(set([random.randrange(1,100) for i in range(20)]))
 # print(list_)
 
-from MyUtils import *
-import requests as re
-
-
 # my_list = uniq_list(1,10,10)
 
 # def bubble_sort():
@@ -761,8 +756,6 @@ import requests as re
 #     print("Отсортированный список: ", my_list)
 # print(my_list)
 # print(bubble_sort(my_list))
-
-
 
 """  Программирование на Python  https://stepik.org/course/67/syllabus
 """
@@ -1138,3 +1131,58 @@ def orpho_check(chk_words,strings_for_check):
         # chk_words = ['champions','we','are','Stepik']
         # strings_for_check = ['We are the champignons','We Are The Champions','Stepic']
 
+def tortle_coords(*args):
+    """"
+    Группа биологов в институте биоинформатики завела себе черепашку.
+
+    После дрессировки черепашка научилась понимать и запоминать указания биологов следующего вида:
+    север 10
+    запад 20
+    юг 30
+    восток 40
+    где первое слово — это направление, в котором должна двигаться черепашка,
+    а число после слова — это положительное расстояние в сантиметрах, которое должна пройти черепашка.
+
+    Но команды даются быстро, а черепашка ползёт медленно, и программисты догадались,
+    что можно написать программу, которая определит, куда в итоге биологи приведут черепашку.
+    Для этого программисты просят вас написать программу, которая выведет точку, в которой окажется черепашка после всех команд. Для простоты они решили считать, что движение начинается в точке (0, 0), и движение на восток увеличивает первую координату, а на север — вторую.
+
+    Программе подаётся на вход число команд n, которые нужно выполнить черепашке, после чего n строк с самими командами.
+    Вывести нужно два числа в одну строку: первую и вторую координату конечной точки черепашки. Все координаты целочисленные.
+
+    Sample Input:
+
+    4
+север 10
+запад 20
+юг 30
+восток 40
+Sample Output:
+
+    20 -20
+
+
+    """
+
+    arrow_lst = ['n','w','s','e']
+
+    inc_lst = list(args)
+    steps = inc_lst[0]
+    del inc_lst[0]
+    lst = ' '.join(inc_lst).split()
+    print(lst)
+
+    # print((abs(int(lst[1])-int(lst[5]))),int(lst[3])-int(lst[7]))
+
+    # print(inc_lst[0][0])
+
+    # coords_dic = {'север': 10,'запад': 20,'юг': 30,'восток': 40}
+    # for i in range(steps):
+    #     tmp = input(f'Строка {i}:').split()
+    #     coords_dic[tmp[0]] = tmp[1]
+    # print(coords_dic)
+
+    print()
+
+tortle_coords(4,'север 10','запад 20','юг 30','восток 40')
+# tortle_coords('север 10','запад 20','юг 30','восток 40',steps=4)
