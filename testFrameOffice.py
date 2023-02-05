@@ -1131,7 +1131,7 @@ def orpho_check(chk_words,strings_for_check):
         # chk_words = ['champions','we','are','Stepik']
         # strings_for_check = ['We are the champignons','We Are The Champions','Stepic']
 
-def tortle_coords(*args):
+def tortle_coords(strings):
     """"
     Группа биологов в институте биоинформатики завела себе черепашку.
 
@@ -1163,26 +1163,80 @@ Sample Output:
 
 
     """
+    args = []
+    for i in range(strings):
+        args.append(input())
 
-    arrow_lst = ['n','w','s','e']
+    arrows_list = list(set([args[i].split()[0] for i in range(len(args))]))
+    dic = {}
+    x = 0
+    y = 0
+    # for arrow in arrows_list:
+    #     dic[arrow]=[]
+    #     for i in range(len(args)):
+    #         if args[i].split()[0] == arrow:
+    #             coord = args[i].split()[1]
+    #             dic[arrow] = dic.get(arrow,[])+[coord]
+    #
+    # print(dic)
 
-    inc_lst = list(args)
-    steps = inc_lst[0]
-    del inc_lst[0]
-    lst = ' '.join(inc_lst).split()
-    print(lst)
+    for i in range(len(args)):
+        arrow = args[i].split()[0]
+        coord = args[i].split()[1]
+        if arrow =='юг':
+            y-=int(coord)
+        elif arrow =='север':
+            y += int(coord)
+        elif arrow =='запад':
+            x -= int(coord)
+        elif arrow =='восток':
+            x += int(coord)
+        else:
+            print('Инах!')
 
-    # print((abs(int(lst[1])-int(lst[5]))),int(lst[3])-int(lst[7]))
+    print(x,y)
+    # tortle_coords(int(input()))
 
-    # print(inc_lst[0][0])
+def average_height(file):
+    """
+    Дан файл с таблицей в формате TSV с информацией о росте школьников разных классов.
+    Напишите программу, которая прочитает этот файл и подсчитает для каждого класса средний рост учащегося.
+    Файл состоит из набора строк, каждая из которых представляет собой три поля:
+    Класс Фамилия Рост
+    Класс обозначается только числом. Буквенные модификаторы не используются. Номер класса может быть от 1 до 11 включительно. В фамилии нет пробелов, а в качестве роста используется натуральное число, но при подсчёте среднего требуется вычислить значение в виде вещественного числа.
+    Выводить информацию о среднем росте следует в порядке возрастания номера класса (для классов с первого по одиннадцатый). Если про какой-то класс нет информации, необходимо вывести напротив него прочерк.
+    В качестве ответа прикрепите файл с полученными данными о среднем росте.
+    Sample Input:
 
-    # coords_dic = {'север': 10,'запад': 20,'юг': 30,'восток': 40}
-    # for i in range(steps):
-    #     tmp = input(f'Строка {i}:').split()
-    #     coords_dic[tmp[0]] = tmp[1]
-    # print(coords_dic)
+    6	Вяххи	159
+    11	Федотов	172
+    7	Бондарев	158
+    6	Чайкина	153
+    Sample Output:
 
-    print()
+    1 -
+    2 -
+    3 -
+    4 -
+    5 -
+    6 156.0
+    7 158.0
+    8 -
+    9 -
+    10 -
+    11 172.0
+    """
 
-tortle_coords(4,'север 10','запад 20','юг 30','восток 40')
-# tortle_coords('север 10','запад 20','юг 30','восток 40',steps=4)
+    with open(file,'r') as f:
+        lst = f.readlines()
+    for i in range(1,12):
+        height = 0
+        c = 0
+        for strng in lst:
+            class_ = int(strng[:2].strip())
+            tmp_height = int(strng[len(strng)-4::])
+            if class_ == i:
+                c+=1
+                height += tmp_height
+        print(i,height/c)
+    # average_height('dataset_3380_5.txt')
