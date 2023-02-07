@@ -487,15 +487,15 @@ def flint_valley(strings_count,freezer_nums_list):
 
     print(error_nums_lst)
 
-    freezer_nums_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen ' \
-                         'anton ' \
-                         'aoooooooooontooooo ' \
-                         'elelelelelelelelelel ' \
-                         'ntoneeee ' \
-                         'tonee ' \
-                         '253235235a5323352n25235352t253523523235oo235523523523n ' \
-                         'antoooooooooooooooooooooooooooooooooooooooooooooooooooon' \
-                         'unton']
+    # freezer_nums_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen ' \
+    #                      'anton ' \
+    #                      'aoooooooooontooooo ' \
+    #                      'elelelelelelelelelel ' \
+    #                      'ntoneeee ' \
+    #                      'tonee ' \
+    #                      '253235235a5323352n25235352t253523523235oo235523523523n ' \
+    #                      'antoooooooooooooooooooooooooooooooooooooooooooooooooooon' \
+    #                      'unton']
 
 
 # Не Выполнено
@@ -535,6 +535,8 @@ def list_by_example_2():
     print(*[[j for j in range(1, i)] for i in range(2, int(input()) + 2)], sep='\n')
 
 # _________________________
+
+
 def fact(n):
     if n == 1:
         return 1

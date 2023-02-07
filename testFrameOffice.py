@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- #
+from datetime import datetime
 from MyUtils import *
 import requests as re
 import time
@@ -1240,3 +1242,73 @@ def average_height(file):
                 height += tmp_height
         print(i,height/c)
     # average_height('dataset_3380_5.txt')
+
+
+
+"""Декораторы"""
+
+def time_it(func):
+    def wrapper():
+        start = datetime.now()
+        result = func() # Передаваемая функция
+        print(datetime.now() - start)
+        return result
+    return wrapper
+
+
+@time_it # добавляем декоратор
+def one():
+    # start = datetime.now()
+    l = []
+    for i in range(10**5):
+        if i % 2 == 0:
+            l.append(i)
+    # print('one',datetime.now()-start)
+    return l
+
+
+@time_it # добавляем декоратор
+def two():
+    # start = datetime.now()
+    l = [i for i in range(10**5) if i %2 == 0]
+    # print('two',datetime.now()-start)
+    return l
+
+"""Задача с собеседования про дектораторы"""
+"""
+В функцию foo() передается число для вычисления и заносится в КЕШ. 
+Требуется обернуть ее в дикоратор, который возвращает значение из КЕШа если вычисление уже производилось. 
+
+
+"""
+
+cache = {}
+
+def decorator_func(func):
+   def wr(x):
+
+
+       if x in cache:
+           print('взято из кеша',cache[x])
+       else:
+            result = func(x)
+            print(result)
+       return
+   return wr
+
+
+
+@decorator_func
+def foo(x=0):
+    cache[x] = x * x + 1
+    print("Результат вычисления: ",end='')
+    return x * x + 1
+
+# print(foo(3))
+c = 0
+while c<10:
+
+    foo(int(input()))
+    c+=1
+else:
+    print(cache)
