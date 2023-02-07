@@ -441,7 +441,7 @@ def heads_and_tails(string):
             count = 0
     print(max_count)
 
-
+# Не Выполнено
 def flint_valley(strings_count,freezer_nums_list):
     """
     Кремниевая долина 🌶️🌶️
@@ -487,16 +487,58 @@ def flint_valley(strings_count,freezer_nums_list):
 
     print(error_nums_lst)
 
+    freezer_nums_list = ['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen ' \
+                         'anton ' \
+                         'aoooooooooontooooo ' \
+                         'elelelelelelelelelel ' \
+                         'ntoneeee ' \
+                         'tonee ' \
+                         '253235235a5323352n25235352t253523523235oo235523523523n ' \
+                         'antoooooooooooooooooooooooooooooooooooooooooooooooooooon' \
+                         'unton']
 
 
+# Не Выполнено
+def roscomnadzor():
+    pass
 
-freezer_nums_list=['osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen ' \
-                  'anton ' \
-                  'aoooooooooontooooo ' \
-                  'elelelelelelelelelel ' \
-                  'ntoneeee ' \
-                  'tonee ' \
-                  '253235235a5323352n25235352t253523523235oo235523523523n ' \
-                  'antoooooooooooooooooooooooooooooooooooooooooooooooooooon' \
-                  'unton']
-flint_valley(9,freezer_nums_list)
+
+# 4 Вложенные списки
+
+def list_by_example_1():
+    """
+    Список по образцу 1
+    На вход программе подается число n.
+    Напишите программу, которая создает и выводит построчно список, состоящий из
+    n списков [[1, 2, ..., n], [1, 2, ..., n], ..., [1, 2, ..., n]].
+    """
+    n = int(input())
+    lst = [i for i in range(1, n + 1)]
+    for i in range(n):
+        print(lst)
+
+
+def list_by_example_2():
+    """
+    Список по образцу 2
+    На вход программе подается число n.
+    Напишите программу, которая создает
+    и выводит построчно вложенный список, состоящий из n списков [[1], [1, 2], [1, 2, 3], ..., [1, 2, ..., n]].
+
+    Формат входных данных
+    На вход программе подается натуральное число n.
+
+    Формат выходных данных
+    Программа должна вывести построчно указанный вложенный список.
+
+    """
+    print(*[[j for j in range(1, i)] for i in range(2, int(input()) + 2)], sep='\n')
+
+# _________________________
+def fact(n):
+    if n == 1:
+        return 1
+    return fact(n - 1) * n
+
+
+print(*[[j for j in range(1,i)] for i in range(2,5)],sep='\n')
