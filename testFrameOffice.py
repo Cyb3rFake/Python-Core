@@ -1289,10 +1289,12 @@ def decorator_func(func):
 
 
        if x in cache:
-           print('взято из кеша',cache[x])
+           start = datetime.now()
+           print('время вычисления(взято из кеша): ',datetime.now()-start,'',cache[x])
        else:
+            start = datetime.now()
             result = func(x)
-            print(result)
+            print('время вычисления: ',datetime.now()-start)
        return
    return wr
 
@@ -1300,9 +1302,13 @@ def decorator_func(func):
 
 @decorator_func
 def foo(x=0):
-    cache[x] = x * x + 1
-    print("Результат вычисления: ",end='')
-    return x * x + 1
+    tmp = []
+    for i in range((x**7)//2):
+        tmp.append(i)
+    calc = sum(tmp)
+    cache[x] = calc
+    print("Результат вычисления: ",calc)
+    return calc
 
 # print(foo(3))
 c = 0
