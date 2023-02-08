@@ -1285,8 +1285,7 @@ def two():
 cache = {}
 
 def decorator_func(func):
-   def wr(x):
-
+   def wr(x=4):
 
        if x in cache:
            start = datetime.now()
@@ -1295,13 +1294,13 @@ def decorator_func(func):
             start = datetime.now()
             result = func(x)
             print('время вычисления: ',datetime.now()-start)
-       return
+       return result
    return wr
 
 
 
 @decorator_func
-def foo(x=0):
+def foo(x=4):
     tmp = []
     for i in range((x**7)//2):
         tmp.append(i)
@@ -1310,11 +1309,15 @@ def foo(x=0):
     print("Результат вычисления: ",calc)
     return calc
 
-# print(foo(3))
-c = 0
-while c<10:
 
-    foo(int(input()))
-    c+=1
-else:
-    print(cache)
+
+foo()
+
+
+# c = 0
+# while c<10:
+#
+#     foo(int(input()))
+#     c+=1
+# else:
+#     print(cache)
