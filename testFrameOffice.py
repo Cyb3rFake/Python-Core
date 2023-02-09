@@ -20,7 +20,6 @@ import time
 # print(nums)
 
 
-
 # passwd = "jopa"
 # conf = "jopa"
 # if passwd == conf:
@@ -405,7 +404,6 @@ import time
 #     print(x[i])
 
 
-
 # n = "945"
 # m = [num for num in n]
 #
@@ -455,7 +453,7 @@ import time
 # print(mystr)
 
 
-#print("\"Python is a great language!\", said Fred. \"I don't ever remember having this much fun before.\"")
+# print("\"Python is a great language!\", said Fred. \"I don't ever remember having this much fun before.\"")
 
 # firstname = input()
 # lastname = input()
@@ -706,7 +704,6 @@ print(Max[1])
 # from datetime import datetime
 
 
-
 # print(f'{time[3]}:{time[4]}')
 # ss = 3721
 # print()
@@ -762,31 +759,32 @@ print(Max[1])
 """  Программирование на Python  https://stepik.org/course/67/syllabus
 """
 
+
 # 3.4 Файловый ввод/вывод
 
 def decypher(text):
-    with open('dataset_3363_2.txt','r') as file:
+    with open('dataset_3363_2.txt', 'r') as file:
         text = file.read()
 
     # inc_str = 'Q10c4G17s20P17p4G20y19p5t16Q14N7Q1L17a13l9I15L14e20U4'
     inc_str = text
     out_str = []
     mult = ''
-    for i in range(len(inc_str)-2):
+    for i in range(len(inc_str) - 2):
         if inc_str[i].isalpha() == True:
-            if inc_str[i+1].isalpha() == False:
-                mult += inc_str[i+1]
-            if inc_str[i+2].isalpha() == False:
-                mult += inc_str[i+2]
+            if inc_str[i + 1].isalpha() == False:
+                mult += inc_str[i + 1]
+            if inc_str[i + 2].isalpha() == False:
+                mult += inc_str[i + 2]
             out_str.append(inc_str[i] * int(mult))
         mult = ''
-    result =''.join(out_str)
+    result = ''.join(out_str)
     print(result)
 
-def most_(text = 'abc a bCd bC AbC BC BCD bcd ABC'.lower()):
-    with open('dataset_3363_3.txt','r') as file:
-        text = ''.join(file.read().split('\n'))
 
+def most_(text='abc a bCd bC AbC BC BCD bcd ABC'.lower()):
+    with open('dataset_3363_3.txt', 'r') as file:
+        text = ''.join(file.read().split('\n'))
 
     def get_key(d, value):
         for k, v in d.items():
@@ -799,15 +797,16 @@ def most_(text = 'abc a bCd bC AbC BC BCD bcd ABC'.lower()):
     for item in set(lst_):
         lst_dic[item] = lst_.count(item)
 
-    val = {i for i in lst_dic if lst_dic[i]==max(lst_dic.values())} #поиск по ключу максимального элемента
-    print('Всего элементов:',len(lst_))
-    print('Уникальных элементов:',len(set(lst_)))
-    print('Больше всего повторяется:',*val,max(lst_dic.values()))
+    val = {i for i in lst_dic if lst_dic[i] == max(lst_dic.values())}  # поиск по ключу максимального элемента
+    print('Всего элементов:', len(lst_))
+    print('Уникальных элементов:', len(set(lst_)))
+    print('Больше всего повторяется:', *val, max(lst_dic.values()))
+
 
 def Students_data():
     # with open('dataset_3363_4.txt','r',encoding='utf8') as file:
     #     text = (file.read())
-    with open('dataset_3363_4.txt','r') as file:
+    with open('dataset_3363_4.txt', 'r') as file:
         text = (file.read())
 
     lst = text.split("\n")
@@ -822,22 +821,25 @@ def Students_data():
     for item in lst1:
         counter += 1
         try:
-            print((int(item[1])+int(item[2])+int(item[3]))/3)
+            print((int(item[1]) + int(item[2]) + int(item[3])) / 3)
         except:
             print(item, 'Не посчиталось')
             pass
         math_midle += int(item[1])
         phus_midle += int(item[2])
         lang_midle += int(item[3])
-    print(math_midle/counter,phus_midle/counter,lang_midle/counter)
+    print(math_midle / counter, phus_midle / counter, lang_midle / counter)
+
 
 # 3.5 Модули, подключение модулей
 
-import math, sys,urllib3
-urllib3.disable_warnings() #
+import math, sys, urllib3
+
+urllib3.disable_warnings()  #
+
 
 def get_perimert(radius_circle):
-    return math.pi*2*radius_circle
+    return math.pi * 2 * radius_circle
     # print(get_perimert(float(input())))
 
 
@@ -858,16 +860,17 @@ def get_strings_count():
     В поле ответа введите одно число или отправьте файл, содержащий одно число.
     """
 
-    with open('Dataset_1.txt','r') as file:
+    with open('Dataset_1.txt', 'r') as file:
         text = file.read().strip()
 
         r = re.get(text)
         if r.status_code == 200:
             pass
         else:
-            print('Ошибка',r)
+            print('Ошибка', r)
 
     print(len(r.text.splitlines()))
+
 
 def get_reqest():
     """
@@ -881,17 +884,17 @@ def get_reqest():
     """
     url = "https://stepic.org/media/attachments/course67/3.6.3/"
     open_file = "Dataset_2.txt"
-    with open(open_file,'r') as file:
+    with open(open_file, 'r') as file:
         text = file.read().strip()
 
-    print(f'Файл {open_file} содержит:',text, sep='\n')
+    print(f'Файл {open_file} содержит:', text, sep='\n')
     take_txt_file = text.split('/')[-1]
-    r = re.get(url+take_txt_file)
+    r = re.get(url + take_txt_file)
     take_text = r.text
     c = 0
-    while take_text.startswith('We')==False:
-        r = re.get(url+take_text)
-        c+=1
+    while take_text.startswith('We') == False:
+        r = re.get(url + take_text)
+        c += 1
         print(f'Файл № {c} Содержимое фала {take_text} : {r.text}')
         take_text = r.text
 
@@ -1071,7 +1074,8 @@ def footbal_result_format():
     #     # print()
     # footbal_result_format()
 
-def encrypt(symbs,key,str_for_encrypt,str_for_decrypt):
+
+def encrypt(symbs, key, str_for_encrypt, str_for_decrypt):
     """
     В какой-то момент в Институте биоинформатики биологи перестали понимать, что говорят информатики: они говорили каким-то странным набором звуков.
     В какой-то момент один из биологов раскрыл секрет информатиков: они использовали при общении подстановочный шифр, т.е. заменяли каждый символ исходного сообщения на соответствующий ему другой символ. Биологи раздобыли ключ к шифру и теперь нуждаются в помощи:
@@ -1092,12 +1096,12 @@ def encrypt(symbs,key,str_for_encrypt,str_for_decrypt):
     """
 
     # print('Original string:',str_for_encrypt)
-    translation = str_for_encrypt.maketrans(symbs,key)
+    translation = str_for_encrypt.maketrans(symbs, key)
     encrypted = str_for_encrypt.translate(translation)
     # print('Translated string:',str_for_encrypt.translate(translation))
     # print()
 
-    translation = str_for_decrypt.maketrans(key,symbs)
+    translation = str_for_decrypt.maketrans(key, symbs)
     decrypted = str_for_decrypt.translate(translation)
     # print('Encrypted stiong:', str_for_decrypt)
     # print('Decrypted string:',str_for_decrypt.translate(translation))
@@ -1107,7 +1111,8 @@ def encrypt(symbs,key,str_for_encrypt,str_for_decrypt):
     # print(encrypt('abcd','*d%#','abacabadaba','#*%*d*%'))
     # print(encrypt(str(input()),str(input()),str(input()),str(input())))
 
-def orpho_check(chk_words,strings_for_check):
+
+def orpho_check(chk_words, strings_for_check):
     """
     Простейшая система проверки орфографии может быть основана на использовании списка известных слов.
     Если введённое слово не найдено в этом списке, оно помечается как "ошибка".
@@ -1123,15 +1128,15 @@ def orpho_check(chk_words,strings_for_check):
     for i in range(len(words)):
         if words[i] not in chk_words:
             res.append(words[i])
-    print(*set(res),sep='\n')
+    print(*set(res), sep='\n')
 
-        # chk_words = [str(input()).lower() for i in range(int(input()))]
-        # strings_for_check = [str(input()).lower() for i in range(int(input()))]
-        # orpho_check(chk_words,strings_for_check)
+    # chk_words = [str(input()).lower() for i in range(int(input()))]
+    # strings_for_check = [str(input()).lower() for i in range(int(input()))]
+    # orpho_check(chk_words,strings_for_check)
 
+    # chk_words = ['champions','we','are','Stepik']
+    # strings_for_check = ['We are the champignons','We Are The Champions','Stepic']
 
-        # chk_words = ['champions','we','are','Stepik']
-        # strings_for_check = ['We are the champignons','We Are The Champions','Stepic']
 
 def tortle_coords(strings):
     """"
@@ -1185,19 +1190,20 @@ Sample Output:
     for i in range(len(args)):
         arrow = args[i].split()[0]
         coord = args[i].split()[1]
-        if arrow =='юг':
-            y-=int(coord)
-        elif arrow =='север':
+        if arrow == 'юг':
+            y -= int(coord)
+        elif arrow == 'север':
             y += int(coord)
-        elif arrow =='запад':
+        elif arrow == 'запад':
             x -= int(coord)
-        elif arrow =='восток':
+        elif arrow == 'восток':
             x += int(coord)
         else:
             print('Инах!')
 
-    print(x,y)
+    print(x, y)
     # tortle_coords(int(input()))
+
 
 def average_height(file):
     """
@@ -1229,50 +1235,52 @@ def average_height(file):
     11 172.0
     """
 
-    with open(file,'r') as f:
+    with open(file, 'r') as f:
         lst = f.readlines()
-    for i in range(1,12):
+    for i in range(1, 12):
         height = 0
         c = 0
         for strng in lst:
             class_ = int(strng[:2].strip())
-            tmp_height = int(strng[len(strng)-4::])
+            tmp_height = int(strng[len(strng) - 4::])
             if class_ == i:
-                c+=1
+                c += 1
                 height += tmp_height
-        print(i,height/c)
+        print(i, height / c)
     # average_height('dataset_3380_5.txt')
-
 
 
 """Декораторы"""
 
+
 def time_it(func):
     def wrapper():
         start = datetime.now()
-        result = func() # Передаваемая функция
+        result = func()  # Передаваемая функция
         print(datetime.now() - start)
         return result
+
     return wrapper
 
 
-@time_it # добавляем декоратор
+@time_it  # добавляем декоратор
 def one():
     # start = datetime.now()
     l = []
-    for i in range(10**5):
+    for i in range(10 ** 5):
         if i % 2 == 0:
             l.append(i)
     # print('one',datetime.now()-start)
     return l
 
 
-@time_it # добавляем декоратор
+@time_it  # добавляем декоратор
 def two():
     # start = datetime.now()
-    l = [i for i in range(10**5) if i %2 == 0]
+    l = [i for i in range(10 ** 5) if i % 2 == 0]
     # print('two',datetime.now()-start)
     return l
+
 
 """Задача с собеседования про дектораторы"""
 """
@@ -1284,31 +1292,28 @@ def two():
 
 cache = {}
 
+
 def decorator_func(func):
-   def wr(x=4):
+    def wr(x):
 
-       if x in cache:
-           start = datetime.now()
-           print('время вычисления(взято из кеша): ',datetime.now()-start,'',cache[x])
-       else:
-            start = datetime.now()
+        if x in cache:
+            print('взято из кеша', cache[x])
+        else:
             result = func(x)
-            print('время вычисления: ',datetime.now()-start)
-       return result
-   return wr
+            print(result)
+        return
 
+    return wr
 
 
 @decorator_func
-def foo(x=4):
-    tmp = []
-    for i in range((x**7)//2):
-        tmp.append(i)
-    calc = sum(tmp)
-    cache[x] = calc
-    print("Результат вычисления: ",calc)
-    return calc
+def foo(x=0):
+    cache[x] = x * x + 1
+    print("Результат вычисления: ", end='')
+    return x * x + 1
 
+
+# print(foo(3))
 # c = 0
 # while c<10:
 #
@@ -1316,13 +1321,33 @@ def foo(x=4):
 #     c+=1
 # else:
 #     print(cache)
-"""______________________________________________________________________"""
-# a,b,c = 5,6,7
-# print(sum([a//2+a%2,b//2+b%2,c//2+c%2]))
 
-# for i in zip([1,4,7],[2,5,8],[3,6,9]):
-#     print(i)
+who = 'роскомнадзор'
+str = (f'{who} запретил букву').split()
+print()
+who =''
 
-l = [1,2,3],['A','B','C'],[7,8,9]
-x = list(zip(l[0],l[1]))
-print(*list(reversed(x)))
+
+# del who[2::]
+# print(who)
+
+rus_letters = [chr(i) for i in range(1072, 1104)]
+del_letters = []
+res = []
+
+for letter in rus_letters:
+    for i in range(3):
+        if letter not in str[i]:
+            pass
+        else:
+            del_letters.append(letter)
+            # print(letter)
+steps = len(list(set(del_letters)))
+while steps!=0:
+    steps-=1
+    if str[0] == 0:
+
+
+
+print(len(list(set(del_letters))))
+print(del_letters)
