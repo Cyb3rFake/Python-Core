@@ -563,6 +563,37 @@ def list_by_example_2():
     """
     print(*[[j for j in range(1, i)] for i in range(2, int(input()) + 2)], sep='\n')
 
+
+def pascal_triange():
+    """
+    Формат входных данных
+    На вход программе подается число n (n≥0).
+
+    Формат выходных данных
+    Программа должна вывести указанную строку треугольника Паскаля в виде списка.
+    """
+    # n = int(input())
+    n = 4
+    res= []
+    for i in range(n):
+        row = [1]*(i+1)
+        for j in range(i):
+            row[j] = [row[i-1]+row[j-1]]
+            print(row[j])
+
+        # print(row)
+
+pascal_triange()
+
+
+
+
+
+
+
+
+
+
 # _________________________
 
 #
@@ -593,4 +624,4 @@ def list_by_example_2():
 # print(m.rfind('This'))
 # m = list(m)
 # del m[:3:]
-print(m)
+# print(m)
