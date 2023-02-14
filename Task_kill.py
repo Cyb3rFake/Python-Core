@@ -46,5 +46,3 @@ import math
     #     print(key, value)
 
 # print_keyword_args(first_name="John", last_name="Doe")
-
-

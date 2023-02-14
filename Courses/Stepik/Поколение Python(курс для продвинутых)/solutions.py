@@ -572,19 +572,37 @@ def pascal_triange():
     Формат выходных данных
     Программа должна вывести указанную строку треугольника Паскаля в виде списка.
     """
-    # n = int(input())
-    n = 4
-    res= []
+    n = int(input())
+    # n = 100
+    res = []
+    if n == 0:
+        print('[1]')
+        return
     for i in range(n):
         row = [1]*(i+1)
-        for j in range(i):
-            row[j] = [row[i-1]+row[j-1]]
-            print(row[j])
+        for j in range(1,i):
+            row[j] = res[i-1][j-1]+res[i-1][j]
+        res.append(row)
 
+    for i in range(n):
+        print(' '*(n-i),*res[i])
+    # print(*res,sep='\n')
+
+        # print(' '*(n-i),*row,sep=' ')
         # print(row)
-
+        # print(row)
 pascal_triange()
-
+# n = int(input())
+# res = []
+# if n != 0:
+#     for i in range(n):
+#         row = [1]*(i+1)
+#         for j in range(1,i):
+#             row[j] = res[i-1][j-1]+res[i-1][j]
+#         res.append(row[j])
+#     print(res)
+# else:
+#     print('[1]')
 
 
 
