@@ -1322,33 +1322,5 @@ def foo(x=0):
 # else:
 #     print(cache)
 
-who = 'роскомнадзор'
-str = (f'{who} запретил букву').split()
-rus_letters = [chr(i) for i in range(1072, 1104)]
-del_letters = []
-res = []
-for letter in rus_letters:
-    c = 0
-    for word in str:
-        if letter in word and c != 1:
-            c+=1
-            res.append([*str,letter])
-            str[str.index(word)] = word.replace(letter,'')
-        else:
-            str[str.index(word)] = word.replace(letter, '')
-# print(*res,sep='\n')
-
-for string in res:
-    for word in string:
-        if word == '':
-            string.remove(word)
-    for word in string:
-        if word == '':
-            string.remove(word)
-
-res_1 = []
-for i in range(len(res)):
-    res_1.append(' '.join(res[i]))
-print(*res_1,sep='\n')
-
-
+print(len(list(set(del_letters))))
+print(del_letters)
