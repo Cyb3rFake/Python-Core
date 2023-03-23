@@ -10,3 +10,14 @@
 ## [OOP(0/10)](https://github.com/Cyb3rFake/Python-Core/tree/main/8_OOP)
 ## [Regular Expressions(0/9)](https://github.com/Cyb3rFake/Python-Core/tree/main/9_Regular%20Expressions)
 ## [Pythonicness & Packaging(0/11)](https://github.com/Cyb3rFake/Python-Core/tree/main/10_Pythonicness%20%26%20Packaging)
+
+
+
+{
+  "data": {
+    "type": "analysis",
+    "id": "ZjE3MDRlZjUxZWU4OTc5ZjBiNGZjOWFlOTQ4MGY1MDk6MTY3ODc4NjMxMA==",
+    "links": {
+      "self": "https://www.virustotal.com/api/v3/analyses/ZjE3MDRlZjUxZWU4OTc5ZjBiNGZjOWFlOTQ4MGY1MDk6MTY3ODc4NjMxMA=="
+    }
+  }

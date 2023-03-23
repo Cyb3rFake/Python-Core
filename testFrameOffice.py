@@ -1322,5 +1322,53 @@ def foo(x=0):
 # else:
 #     print(cache)
 
-print(len(list(set(del_letters))))
-print(del_letters)
+# print(len(list(set(del_letters))))
+# print(del_letters)
+# numbers = [-214, 181, -139, 448, -20, -917, 32, 422, -895, 198, 284, 472, -986, -964, -989, 29]
+# lst_ind = [-1,0,12,7]
+# sum_rem = []
+# for i in range(0,4):
+#     sum.append(numbers[lst_ind[i]])
+#     numbers.remove(numbers[lst_ind[i]])
+# print(numbers)
+# print(sum(sum_rem))
+
+
+age = '7'
+
+ages_mapping = {
+    'Младенец': range(0, 2),
+    'Малыш': range(2, 4),
+    'Ребенок': range(4, 12),
+    'Подросток': range(12, 19),
+    'Взрослый человек': range(19, 65),
+    'Пожилой человек': range(65, 100),
+}
+
+
+print('values',list(ages_mapping.keys()))
+print('keys',list(ages_mapping.values()))
+lst={}
+for i in range(len(list(ages_mapping.keys()))):
+    if age in list(ages_mapping.keys())[i]:
+        print('hui')
+
+# for k,v in ages_mapping.items():
+#     lst[v] = k
+#
+# print('Значения ',list(lst.values()))
+# print('Ключи ',list(lst.keys()))
+# print(type(list(lst.keys())[0]))
+
+# if age in lst.keys():
+#     print('hui')
+#
+
+# reverseMap = dict(zip(ages_mapping.values(), ages_mapping.keys()))
+# print(reverseMap.get(age))
+# while True:
+#     try:
+#         print(list(ages_mapping.keys())[int(input())])
+#     except:
+#         print(BaseException,'ошипк')
+# print(list(ages_mapping())[list(ages_mapping()).index(2)])

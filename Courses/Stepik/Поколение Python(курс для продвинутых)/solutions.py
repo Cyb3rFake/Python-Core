@@ -621,19 +621,18 @@ def packing_doubles():
     """
     # inc_lst = input().split()
 
-    inc_lst = 'w w w o r l d g g g g r e a t t e c c h e m g g p w w'.split()
-    inc_lst = 'a b c d'.split()
+    inc_lst = 'w w w o r l d g g g'.split()
+    # inc_lst = 'a b c d'.split()
     # print(inc_lst[:3])
 
     l = len(inc_lst)
     res = []
     tmp = 0
-    for i in range(1,len(inc_lst)):
-        if inc_lst[i]!=inc_lst[i-1]:
-            res.append(inc_lst[tmp:i])
-            tmp = i
-        if i == len(inc_lst)-1 and inc_lst[i]==inc_lst[-1]:
-            res.append(inc_lst[-2::])
+    res.append(inc_lst[0])
+    for i in range(0,len(inc_lst)-1):
+        if i!=len(inc_lst)-2:
+            if res[i]==inc_lst[i+1]:
+                res.append(inc_lst[i+1])
     print(res)
 
 
@@ -643,7 +642,7 @@ def packing_doubles():
     #         res.append(tmp)
     #         tpm = []
     # print(res)
-packing_doubles()
+
 
 # _________________________
 
@@ -676,3 +675,8 @@ packing_doubles()
 # m = list(m)
 # del m[:3:]
 # print(m)
+
+s = 'a b b b c c d d d'
+packed = []
+
+
