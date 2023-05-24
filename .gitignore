@@ -133,4 +133,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-/TelegramBots/WeatherBot/config.py
+/TelegramBots/WeatherBot/deploy/config.py
