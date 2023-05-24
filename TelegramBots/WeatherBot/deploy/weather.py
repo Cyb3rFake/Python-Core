@@ -5,7 +5,8 @@ import config
 def get_cords(city_, api_key=config.api_key):
     while True:
         try:
-            r = requests.get(f'http://api.openweathermap.org/geo/1.0/direct?q={city_}&limit=1&appid={api_key}').json()
+            url = f'http://api.openweathermap.org/geo/1.0/direct?q={city_}&limit=1&appid={api_key}'
+            r = requests.get(url).json()
             return r[0]['lat'], r[0]['lon']
         except EOFError as ex:
             print("Координаты города не найдены")
