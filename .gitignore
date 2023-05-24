@@ -28,7 +28,7 @@ share/python-wheels/
 *.egg
 
 *.zip
-*.txt
+#*.txt
 *.xml
 
 MANIFEST
