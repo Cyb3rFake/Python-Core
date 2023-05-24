@@ -26,5 +26,5 @@ async def get_wtr(message: types.Message):
     await message.reply(get_weather(message.text))
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
