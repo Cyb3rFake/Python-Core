@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>img/backspace_FILL1_wght400_GRAD0_opsz48.png</file>
+    <file>img/calculate_FILL0_wght400_GRAD0_opsz48.png</file>
+  </qresource>
+</RCC>
