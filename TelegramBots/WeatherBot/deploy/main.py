@@ -1,7 +1,8 @@
 from aiogram.utils import executor
-from create_bot import dp, bot
+from create_bot import dp
 from aiogram import types
 from weather import get_weather
+
 
 commands_list = '/map - получить положение города на карте\n' \
                 '/start - \n' \
@@ -17,7 +18,7 @@ async def on_startup(_):
 
 @dp.message_handler(commands=['start'])
 async def cmd_start(message: types.Message):
-    await message.answer('Напишите в каком городе узнать погоду?')
+    await message.answer(commands_list)
 
 
 @dp.message_handler()
