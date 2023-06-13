@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atrucks:root xmlns:atrucks="https://www.atrucks.su/xmlns/1.0">
+	<atrucks:companies xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<atrucks:company>
+			<req_inn xmlns="">--------</req_inn>
+			<req_kpp xmlns="">--------</req_kpp>
+			<company_id xmlns="">--------</company_id>
+			<req_name xmlns="">-----------</req_name>
+		</atrucks:company>
+	</atrucks:companies>
+	<atrucks:cargoes xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<atrucks:cargo>
+			<cargo_id xmlns="">Общий груз</cargo_id>
+			<title xmlns="">ТНП</title>
+			<weight xmlns="">20</weight>
+			<pack_types xmlns="">
+				<pack_type>Паллета</pack_type>
+			</pack_types>
+			<volume xmlns="">82</volume>
+			<temperature_regime xmlns=""/>
+			<hazard_class xmlns=""/>
+			<seats xmlns="">32</seats>
+			<belts_required xmlns=""/>
+		</atrucks:cargo>
+	</atrucks:cargoes>
+	<atrucks:orders xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<atrucks:order>
+			<order_id xmlns="">293572f4-85a3-40a8-9437-4166f82ff56d</order_id>
+			<order_human_name xmlns="">АТ11365</order_human_name>
+			<company_id xmlns="">2626047111</company_id>
+			<price xmlns="">0</price>
+			<order_price_vat_type xmlns="">with_vat</order_price_vat_type>
+			<order_price_currency xmlns="">RUB</order_price_currency>
+			<auction_duration xmlns="">30</auction_duration>
+			<comment xmlns=""/>
+			<truck xmlns="">
+				<types>
+					<truck_type>Изотерм</truck_type>
+				</types>
+				<loading_types>
+					<rear/>
+				</loading_types>
+				<carrying_capacity xsi:type="xs:decimal">20</carrying_capacity>
+				<volume xsi:type="xs:decimal">82</volume>
+			</truck>
+			<atrucks:route>
+				<atrucks:waypoint>
+					<waypoint_type xmlns="">loading</waypoint_type>
+					<cargo_ids xmlns="">
+						<cargo_id>Общий груз</cargo_id>
+					</cargo_ids>
+					<counteragent xmlns="">ООО "Холдинг Аква"</counteragent>
+					<contact_person xmlns=""/>
+					<comment xmlns="">09:00-17:00, </comment>
+					<address xmlns="">
+						<free_form>Ставропольский край, Минераловодский р-н, Минеральные Воды г, 1-я Промышленная ул, дом № 9</free_form>
+					</address>
+					<arrival_date_start xmlns="">2023-03-17</arrival_date_start>
+					<arrival_date_end xmlns="">2023-03-17</arrival_date_end>
+				</atrucks:waypoint>
+				<atrucks:waypoint>
+					<waypoint_type xmlns="">unloading</waypoint_type>
+					<cargo_ids xmlns="">
+						<cargo_id>Общий груз</cargo_id>
+					</cargo_ids>
+					<counteragent xmlns="">ТС Магнит Тандер АО, РЦ Оренбург Ленина</counteragent>
+					<contact_person xmlns=""/>
+					<comment xmlns="">11:00-11:00, 23000Y6552222, YB12645565</comment>
+					<address xmlns="">
+						<free_form>461100, Оренбургская обл, Оренбургский р-н, Ленина п, Промышленный проезд, дом 8, строение 1</free_form>
+					</address>
+					<arrival_date_start xmlns="">2023-03-21</arrival_date_start>
+					<arrival_time_start xmlns="">11:00:00</arrival_time_start>
+					<arrival_date_end xmlns="">2023-03-21</arrival_date_end>
+					<arrival_time_end xmlns="">11:00:00</arrival_time_end>
+				</atrucks:waypoint>
+				<atrucks:waypoint>
+					<waypoint_type xmlns="">unloading</waypoint_type>
+					<cargo_ids xmlns="">
+						<cargo_id>Общий груз</cargo_id>
+					</cargo_ids>
+					<counteragent xmlns="">ТС Самокат CберЛогистика РЦ Уфа Умный ритейл</counteragent>
+					<contact_person xmlns=""/>
+					<comment xmlns="">09:00-15:00, УР-00764453</comment>
+					<address xmlns="">
+						<free_form>450007, Башкортостан Респ, г Уфа, пр-кт Дружбы народов, д. 19</free_form>
+					</address>
+					<arrival_date_start xmlns="">2023-03-22</arrival_date_start>
+					<arrival_time_start xmlns="">09:00:00</arrival_time_start>
+					<arrival_date_end xmlns="">2023-03-22</arrival_date_end>
+					<arrival_time_end xmlns="">15:00:00</arrival_time_end>
+				</atrucks:waypoint>
+				<atrucks:waypoint>
+					<waypoint_type xmlns="">unloading</waypoint_type>
+					<cargo_ids xmlns="">
+						<cargo_id>Общий груз</cargo_id>
+					</cargo_ids>
+					<counteragent xmlns="">АГРОТОРГ ООО РЦ5 Уфа Сигма-Алкоголь</counteragent>
+					<contact_person xmlns=""/>
+					<comment xmlns="">02:40-02:40, 7379501235</comment>
+					<address xmlns="">
+						<free_form>Башкортостан респ, Уфа г, Гвардейская ул, дом 57/5, Здание складского продовольственного комплекса, Литера А, этаж 1, помещение 32</free_form>
+					</address>
+					<arrival_date_start xmlns="">2023-03-23</arrival_date_start>
+					<arrival_time_start xmlns="">02:40:00</arrival_time_start>
+					<arrival_date_end xmlns="">2023-03-23</arrival_date_end>
+					<arrival_time_end xmlns="">02:40:00</arrival_time_end>
+				</atrucks:waypoint>
+			</atrucks:route>
+			<labels xmlns=""/>
+		</atrucks:order>
+	</atrucks:orders>
+</atrucks:root>
