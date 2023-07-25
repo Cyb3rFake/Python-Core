@@ -1,4 +1,4 @@
-def foo(x, y):
+def foo(x, y): # что возращает эта функция
     return x + y
 
 
@@ -6,7 +6,7 @@ def foo(x, y):
 # print(foo('32','41'))
 # print(foo([32],[41]))
 
-class Animal():
+class Animal():#
     legs = 4
     tail = 1
     name = "Неизвестное животное"
