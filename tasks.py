@@ -22,7 +22,7 @@ def nod_sum(a,b):
             a -= b
         else:
             b -= a
-    return a
+    return a # Подскажи пожалуйста, что делает инструкция return
 
 
 # наименьший общий делитель
