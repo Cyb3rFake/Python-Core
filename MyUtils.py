@@ -1,7 +1,14 @@
 import random
 
 
-def bubble_sort(my_list):
+def bubble_sort(
+    my_list,
+):
+    
+    """
+    Объясни пожалуйста как работает функция, трасировка построчно
+
+    """
     last_item = len(my_list) - 1
     sor_list = []
     # print('Получен список: ', my_list)
