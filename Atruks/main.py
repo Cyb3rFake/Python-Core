@@ -1,5 +1,5 @@
-import requests
-import xml.etree.ElementTree as ET
+import requests #что делает ключевое слово импорт, что за модуль реквест -> импорт подключает библиотеку requests
+import xml.etree.ElementTree as ET #что такое as? as - сокращение alias
 from bs4 import BeautifulSoup as bs
 import lxml
 
@@ -20,7 +20,7 @@ xml_file = fd.read()
 
 soup = bs(xml_file,'lxml')
 
-partners = []
+partners = []#что означают квадратные скобки -> пустой список
 for tag in soup.find_all('atrucks:partner'):
     partners.append(tag.text)
 print(partners[0].split('\n')[1])
