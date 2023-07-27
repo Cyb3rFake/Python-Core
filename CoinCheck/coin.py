@@ -1,4 +1,4 @@
-import requests #Что такое импорт и что такое реквест?
+import requests #Что такое импорт и что такое реквест?__
 import time
 import locale 
 
